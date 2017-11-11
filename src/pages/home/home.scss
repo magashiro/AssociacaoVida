@@ -3,16 +3,24 @@ page-home {
     font-style: italic;
     }
   #btn {
-    width: 200px;
+    width: 50%;
     border-radius: 7px;
+    position: absolute;
+    top: 35%;
+    left: 25%;
     }
   #cab {
 
   }
   #corpo {
-    margin-top: 50%;
+    
 
   }
+  .wrapper {
+  text-align: center;
+
+  }
+
   #login {
     margin-top: auto;
   }
