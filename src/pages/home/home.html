@@ -5,12 +5,9 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-
-
   <ion-content id ="corpo">
-  <div class = "wrapper">
-    <button ion-button large id="btn">Quero adotar</button>
-    <button ion-button large id="btn" style="margin-top: 20%;">Quero doar </button>
-  </div>
-
+    <div class = "wrapper">
+      <button [navPush]="animalFormPage" ion-button large id="btn">Quero adotar</button>
+      <button ion-button large id="btn" style="margin-top: 20%;">Quero doar</button>
+    </div>
 </ion-content>
