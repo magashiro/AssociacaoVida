@@ -3,11 +3,13 @@ import { NavController } from 'ionic-angular';
 import { AnimalFormPage } from '../animalForm/animalForm';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-animalData',
+  templateUrl: 'animalData.html'
 })
-export class HomePage {
-
+export class AnimalDataPage {
+goback() {
+   this.navCtrl.pop();
+}
 animalFormPage = AnimalFormPage;
   constructor(public navCtrl: NavController) {
 
