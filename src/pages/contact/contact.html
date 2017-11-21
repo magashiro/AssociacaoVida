@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
+    <ion-title style="text-align: center;">
       Contato
     </ion-title>
   </ion-navbar>
@@ -8,12 +8,15 @@
 
 <ion-content>
   <ion-list>
-    <a class="item" href="#" onclick="window.open('https://www.facebook.com/AssociacaoVidaMogi', '_system', 'location=yes'); return false;">
-      <ion-list-header style="text-align: center;">SIGA-NOS TAMBÉM NOS FACEBOOK <ion-icon name="logo-facebook"></ion-icon></ion-list-header>
-    </a>
+    <ion-list-header style="text-align: center;">SIGA-NOS TAMBÉM NOS FACEBOOK</ion-list-header>
+    <ion-list class="item text-center">
+      <ion-icon name="logo-facebook" id="fb" class="item" href="#" onclick="window.open('https://www.facebook.com/AssociacaoVidaMogi', '_system', 'location=yes'); return false;"></ion-icon>
+    </ion-list>
     <ion-item>
-      <ion-icon name=ios-mail-outline ></ion-icon>
-      associacaovidamogimirim@<wbr>hotmail.com
+      <div>
+        associacaovidamogimirim@<wbr>hotmail.com
+          <ion-icon name=ios-mail-outline ></ion-icon>
+      </div>
     </ion-item>
   </ion-list>
 </ion-content>
