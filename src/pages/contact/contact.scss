@@ -8,4 +8,9 @@ page-contact {
   #mail{
     font-size: 200%;
   }
+  #logo{
+    opacity:0.65;
+	-moz-opacity: 0.65;
+	filter: alpha(opacity=65);
+  }
 }
