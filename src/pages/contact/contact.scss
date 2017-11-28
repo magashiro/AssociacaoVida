@@ -10,4 +10,9 @@ page-contact {
     border-radius: 7px;
     margin-left: 45%;
   }
+  #logo{
+    opacity:0.65;
+	-moz-opacity: 0.65;
+	filter: alpha(opacity=65);
+  }
 }
