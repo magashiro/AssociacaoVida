@@ -1,25 +1,38 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
-import { AnimalDataPage } from '../animalData/animalData';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { UserFormPage } from '../userForm/userForm';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'page-animalForm',
   templateUrl: 'animalForm.html'
 })
+
 export class AnimalFormPage {
-	dadosAnimal: FormGroup;
+	
 	goback() {
    		this.navCtrl.pop();
 	}
 
-animalDataPage = AnimalDataPage;
+	animalForm: FormGroup;
+
+	constructor(private fb: FormBuilder){
+	this.createForm();
+	}
+
+	createForm(){
+	this.animalForm = this.fb.group({
+	nome: ['', Validators.required],
+	});
+	}
+
+userFormPage = UserFormPage;
 homePage = HomePage;
+
   constructor(public navCtrl: NavController) {
 
   }
-
-
 
 }

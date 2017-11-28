@@ -1,25 +1,28 @@
 <ion-header id = "cab">
-  <ion-navbar>
-    <ion-title id ="titulo">
-      Formulário
-    </ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title id ="titulo">
+			Cadastre seu Animal
+		</ion-title>
+	</ion-navbar>
 </ion-header>
 
-  <ion-content class="has-footer">
-
-
-    
-    <ion-footer>
-      <ion-grid>
-        <div class="row row-bottom">
-          <div class="col .col-50">
-            <button (click)="goback()" ion-button large id = "btn">Voltar</button>
-          </div>
-          <div class="col .col-50">
-            <button [navPush]="animalDataPage" ion-button large id = "btn" >Próximo</button>
-          </div>
-        </div>
-      </ion-grid>
-    </ion-footer>
-  </ion-content>
+<ion-content class="has-footer">
+	<form [formGroup]="animalForm" novalidate>
+		<div class="form-group" style="margin-top: 10%; height: 100%;">
+			<input class="form-control" formControlName="nome">
+			<p>Form value: {{ animalForm.value | json }}</p>
+		</div>
+	</form>
+	<ion-footer>
+		<ion-grid>
+			<div class="row row-bottom">
+				<div class="col .col-50">
+					<button (click)="goback()" ion-button large id = "btn">Voltar</button>
+				</div>
+				<div class="col .col-50">
+					<button [navPush]="userFormPage" ion-button large id = "btn" >Próximo</button>
+				</div>
+			</div>
+		</ion-grid>
+	</ion-footer>
+</ion-content>

@@ -1,4 +1,4 @@
-page-animalData {
+page-userForm {
   #titulo {
     font-style: arial;
     text-align: center;
@@ -58,4 +58,17 @@ page-animalData {
     border-width: medium;
     border-color: silver;
   }
+}
+
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;  
+}
+::-moz-placeholder {
+   font-style: italic;  
+}
+:-ms-input-placeholder {  
+   font-style: italic; 
 }

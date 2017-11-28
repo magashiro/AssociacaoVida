@@ -3,10 +3,10 @@ import { NavController } from 'ionic-angular';
 import { AnimalFormPage } from '../animalForm/animalForm';
 
 @Component({
-  selector: 'page-animalData',
-  templateUrl: 'animalData.html'
+  selector: 'page-userForm',
+  templateUrl: 'userForm.html'
 })
-export class AnimalDataPage {
+export class UserFormPage {
 goback() {
    this.navCtrl.pop();
 }

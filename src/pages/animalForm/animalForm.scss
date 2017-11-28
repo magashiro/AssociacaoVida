@@ -1,6 +1,6 @@
 page-animalForm {
   #titulo {
-    font-style: italic;
+    font-style: arial;
     text-align: center;
     }
   #btn {
@@ -23,4 +23,26 @@ page-animalForm {
     margin-top: auto;
   }
 
+  #input{
+    height: 6%;
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 7%;
+    border-radius: 7px;
+    border-width: medium;
+    border-color: silver;
   }
+
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;  
+}
+::-moz-placeholder {
+   font-style: italic;  
+}
+:-ms-input-placeholder {  
+   font-style: italic; 
+}
+}
