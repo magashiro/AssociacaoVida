@@ -5,24 +5,69 @@
 		</ion-title>
 	</ion-navbar>
 </ion-header>
-
-<ion-content class="has-footer">
-	<form [formGroup]="animalForm" novalidate>
-		<div class="form-group" style="margin-top: 10%; height: 100%;">
-			<input class="form-control" formControlName="nome">
-			<p>Form value: {{ animalForm.value | json }}</p>
-		</div>
-	</form>
-	<ion-footer>
-		<ion-grid>
+	<ion-content padding class="has-footer">
+		<ion-item>
+			<ion-label stacked>Qual o tipo do animal?</ion-label>
+			<ion-input [(ngModel)]="animal.tipo"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Qual o nome do animal?</ion-label>
+			<ion-input [(ngModel)]="animal.nome"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Sexo do animal?</ion-label>
+			<ion-input [(ngModel)]="animal.sexo"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Quantos anos tem o animal?</ion-label>
+			<ion-input [(ngModel)]="animal.anos"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Quantos meses?</ion-label>
+			<ion-input [(ngModel)]="animal.meses"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Qual o porte do animal?</ion-label>
+			<ion-input [(ngModel)]="animal.porte"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Qual o temperamento?</ion-label>
+			<ion-input [(ngModel)]="animal.temperamento"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Qual a raça do animal?</ion-label>
+			<ion-input [(ngModel)]="animal.raca"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>O animal é vacinado?</ion-label>
+			<ion-input [(ngModel)]="animal.vacinado"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>O animal é castrado?</ion-label>
+			<ion-input [(ngModel)]="animal.castrado"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Informações adicionais</ion-label>
+			<ion-input [(ngModel)]="animal.info"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Insira uma imagem</ion-label>
+			<ion-input [(ngModel)]="animal.img"></ion-input>
+		</ion-item>
+<!-- 		<ion-list>
+			<ion-item *ngFor="let animal of animals">
+				<h2>{{ animal.nome }}</h2>
+				<p>{{ animal.tipo }}</p>
+			</ion-item>
+		</ion-list> -->
+		<ion-footer>
 			<div class="row row-bottom">
 				<div class="col .col-50">
 					<button (click)="goback()" ion-button large id = "btn">Voltar</button>
 				</div>
 				<div class="col .col-50">
-					<button [navPush]="userFormPage" ion-button large id = "btn" >Próximo</button>
+					<button [navPush]="userFormPage" (click)="addAnimal()" ion-button large id = "btn">Próximo</button>
 				</div>
 			</div>
-		</ion-grid>
 	</ion-footer>
 </ion-content>
