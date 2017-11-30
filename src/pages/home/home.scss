@@ -25,4 +25,10 @@ page-home {
   #login {
     margin-top: auto;
   }
+.scroll-view.scroll-x {
+    overflow-x: hidden;
+}
+.scroll-view.scroll-y {
+overflow-y: hidden;
+}
 }

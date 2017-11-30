@@ -18,7 +18,7 @@
             <button (click)="goback()" ion-button large id = "btn">Voltar</button>
           </div>
           <div class="col .col-50">
-            <button ion-button large id = "btn">Próximo</button>
+            <button ion-button large id = "btn" [navPush]="confirmAdoptPage">Próximo</button>
           </div>
         </div>
       </ion-grid>

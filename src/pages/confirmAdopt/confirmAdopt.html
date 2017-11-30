@@ -1,0 +1,22 @@
+<ion-header id = "cab">
+  <ion-navbar>
+    <ion-title id ="titulo">
+      Cadastro do Animal
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+  <ion-content>
+    <ion-footer>
+      <ion-grid>
+        <div class="row row-bottom">
+          <div class="col .col-50">
+            <button (click)="goback()" ion-button large id = "btn">Voltar</button>
+          </div>
+          <div class="col .col-50">
+            <button ion-button large id = "btn" [navPush]="adoptSuccessPage">Próximo</button>
+          </div>
+        </div>
+      </ion-grid>
+    </ion-footer>
+  </ion-content>

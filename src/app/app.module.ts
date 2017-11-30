@@ -8,6 +8,8 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AnimalFormPage } from '../pages/animalForm/animalForm';
 import { UserFormPage } from '../pages/userForm/userForm';
+import { ConfirmAdoptPage } from '../pages/confirmAdopt/confirmAdopt';
+import { AdoptSuccessPage } from '../pages/adoptSuccess/adoptSuccess';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,7 +27,9 @@ import { SQLite } from '@ionic-native/sqlite';
     HomePage,
     TabsPage,
     AnimalFormPage,
-    UserFormPage
+    UserFormPage,
+    ConfirmAdoptPage,
+    AdoptSuccessPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { SQLite } from '@ionic-native/sqlite';
     HomePage,
     TabsPage,
     AnimalFormPage,
-    UserFormPage
+    UserFormPage,
+    ConfirmAdoptPage,
+    AdoptSuccessPage
   ],
   providers: [
     StatusBar,
@@ -52,4 +58,5 @@ import { SQLite } from '@ionic-native/sqlite';
     SQLite
   ]
 })
+
 export class AppModule {}

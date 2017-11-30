@@ -1,4 +1,4 @@
-page-animalForm {
+page-adoptSuccess {
   #titulo {
     font-style: arial;
     text-align: center;
@@ -7,28 +7,11 @@ page-animalForm {
     border-radius: 7px;
     width: 100%;
     }
-  #cab {
-
-  }
-  #corpo {
-
-
-  }
   .wrapper {
   text-align: center;
 
   }
 
-  #login {
-    margin-top: auto;
-  }
-
-  #input{
-    text-align: center;
-    border-radius: 7px;
-    border-width: medium;
-    border-color: silver;
-  }
 
 ::-webkit-input-placeholder {
    font-style: italic;
@@ -41,8 +24,5 @@ page-animalForm {
 }
 :-ms-input-placeholder {  
    font-style: italic; 
-}
-.item, .item-divider {
-  border-color: silver;
 }
 }
