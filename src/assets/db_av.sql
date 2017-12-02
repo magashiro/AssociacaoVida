@@ -1,2 +1,5 @@
 CREATE TABLE IF NOT EXISTS animal (id INTEGER PRIMARY KEY AUTOINCREMENT, tipo TEXT, nome TEXT, sexo TEXT, anos INTEGER, meses INTEGER, porte TEXT, temperamento TEXT, raca TEXT, vacinado TEXT, castrado TEXT, info TEXT, img TEXT);
-INSERT INTO animal (tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) VALUES ('cão', 'pandora', 'F', 7, 5, 'pequeno', 'dócil', 'SRD', 'sim', 'sim', 'nenhuma info', 'img');
+INSERT INTO animal (tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) VALUES ('cão', 'pan1', 'F', 7, 5, 'pequeno', 'dócil', 'SRD', 'sim', 'sim', 'nenhuma info', 'img');
+INSERT INTO animal (tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) VALUES ('cão', 'pandora2', 'F', 7, 5, 'pequeno', 'dócil', 'SRD', 'sim', 'sim', 'nenhuma info', 'img');
+INSERT INTO animal (tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) VALUES ('cão', 'pandora3', 'F', 7, 5, 'pequeno', 'dócil', 'SRD', 'sim', 'sim', 'nenhuma info', 'img');
+INSERT INTO animal (tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) VALUES ('cão', 'pandora4', 'F', 7, 5, 'pequeno', 'dócil', 'SRD', 'sim', 'sim', 'nenhuma info', 'img');

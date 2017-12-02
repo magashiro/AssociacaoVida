@@ -7,6 +7,10 @@
 </ion-header>
 
   <ion-content>
+    <div style="margin-top: 30%;">
+<!--       <p>{{animal.nome}}</p>
+      <p>{{animal.tipo}}</p> -->
+    </div>
     <ion-footer>
       <ion-grid>
         <div class="row row-bottom">
@@ -14,7 +18,7 @@
             <button (click)="goback()" ion-button large id = "btn">Voltar</button>
           </div>
           <div class="col .col-50">
-            <button ion-button large id = "btn" [navPush]="adoptSuccessPage">Próximo</button>
+            <button ion-button large id = "btn" [navPush]="adoptSuccessPage">Confirmar</button>
           </div>
         </div>
       </ion-grid>
