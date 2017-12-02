@@ -10,7 +10,7 @@ import { AnimalFormPage } from '../pages/animalForm/animalForm';
 import { UserFormPage } from '../pages/userForm/userForm';
 import { ConfirmAdoptPage } from '../pages/confirmAdopt/confirmAdopt';
 import { AdoptSuccessPage } from '../pages/adoptSuccess/adoptSuccess';
-
+import { Storage } from '@ionic/storage';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DatabaseProvider } from '../providers/database/database';

@@ -13,23 +13,23 @@ export class DatabaseProvider {
 	private databaseReady: BehaviorSubject<boolean>;
 
   constructor(public sqlitePorter: SQLitePorter, private storage: Storage, private sqlite: SQLite, private platform: Platform, private http: Http) {
-//    this.databaseReady = new BehaviorSubject(false);
-//    this.platform.ready().then(() => {
-//    	this.sqlite.create({
-//    		name: 'db_av.db',
-//    		location: 'default'
-//    	})
-//      .then((db: SQLiteObject) => {
-//    		this.database = db;
-//    		this.storage.get('database_filled').then(val =>{
-//    			if (val) {
-//    				this.databaseReady.next(true);
-//    			} else{
-//    				this.fillDatabase();
-//    			}
-//    		});
-//    	});
-//    });
+    this.databaseReady = new BehaviorSubject(false);
+    this.platform.ready().then(() => {
+    	this.sqlite.create({
+    		name: 'db_av.db',
+    		location: 'default'
+    	})
+      .then((db: SQLiteObject) => {
+    		this.database = db;
+    		this.storage.get('database_filled').then(val =>{
+    			if (val) {
+    				this.databaseReady.next(true);
+    			} else{
+    				this.fillDatabase();
+    			}
+    		});
+    	});
+    });
   }
 
   fillDatabase(){
@@ -46,14 +46,19 @@ export class DatabaseProvider {
   }
 
   addAnimal(tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) {
-  	let data = [tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img];
-  	return this.database.executeSql("INSERT INTO animal (tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", data).then(data =>{
-  		return data;
-  	}, err =>{
-      console.log('Error', err);
-      return err;
-    });
-  }
+    let data = [tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img];
+    return this.database.executeSql("INSERT INTO animal (tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", data).then(data =>{
+        return data;
+      }, err =>{
+        console.log('Error', err);
+        return err;
+      });
+    }
+
+
+//  removeAnimalTemp() {
+//    return this.database.executeSql("DELETE FROM animalsTemp", []);
+//  }
 
   getAllAnimals(){
   	return this.database.executeSql("SELECT * FROM animal", []).then((data) => {
@@ -82,6 +87,7 @@ export class DatabaseProvider {
   		return [];
   	});
   }
+
 
   getDatabaseState(){
   	return this.databaseReady.asObservable();
