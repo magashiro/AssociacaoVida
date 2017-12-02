@@ -13,6 +13,8 @@ import { Storage } from '@ionic/storage';
 export class AnimalFormPage {
   animal = {};
   animals = [];
+  temp = {};
+  temps = [];
 	goback() {
    		this.navCtrl.pop();
 	}
@@ -24,6 +26,7 @@ homePage = HomePage;
     this.databaseProvider.getDatabaseState().subscribe(rdy =>{
       if(rdy){
         this.loadAnimalData();
+        this.loadAnimalDataTemp();
       }
   })
   }
@@ -34,12 +37,26 @@ homePage = HomePage;
   	})
   }
 
+  loadAnimalDataTemp(){
+    this.databaseProvider.getAllAnimalsTemp().then(data =>{
+      this.temps = data;
+    })
+  }
+
   addAnimal(){
    	this.databaseProvider.addAnimal(this.animal['tipo'], this.animal['nome'], this.animal['sexo'], this.animal['anos'], this.animal['meses'], this.animal['porte'], this.animal['temperamento'], this.animal['raca'], this.animal['vacinado'], this.animal['castrado'], this.animal['info'], this.animal['img'])
   	.then(data =>{
   		this.loadAnimalData();
   	});
   	this.animal = {};
+  }
+
+  addAnimalTemp(){
+    this.databaseProvider.addAnimalTemp(this.temp['tipo'], this.temp['nome'], this.temp['sexo'], this.temp['anos'], this.temp['meses'], this.temp['porte'], this.temp['temperamento'], this.temp['raca'], this.temp['vacinado'], this.temp['castrado'], this.temp['info'], this.temp['img'])
+    .then(data =>{
+      this.loadAnimalDataTemp();
+    });
+    this.temp = {};
   }
 
 }

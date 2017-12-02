@@ -55,10 +55,20 @@ export class DatabaseProvider {
       });
     }
 
+  addAnimalTemp(tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) {
+    let data = [tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img];
+    return this.database.executeSql("INSERT INTO temp (tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", data).then(data =>{
+        return data;
+      }, err =>{
+        console.log('Error', err);
+        return err;
+      });
+    }
 
-//  removeAnimalTemp() {
-//    return this.database.executeSql("DELETE FROM animalsTemp", []);
-//  }
+
+  removeAnimalTemp() {
+    return this.database.executeSql("DELETE FROM temp", []);
+  }
 
   getAllAnimals(){
   	return this.database.executeSql("SELECT * FROM animal", []).then((data) => {
@@ -86,6 +96,34 @@ export class DatabaseProvider {
   		console.log('Error', err);
   		return [];
   	});
+  }
+
+  getAllAnimalsTemp(){
+    return this.database.executeSql("SELECT * FROM temp", []).then((data) => {
+      let temps = [];
+      if (data.rows.length > 0){
+        for (var i = 0; i < data.rows.length; i++){
+          temps.push({
+          tipo: data.rows.item(i).tipo,
+          nome: data.rows.item(i).nome,
+          sexo: data.rows.item(i).sexo,
+          anos: data.rows.item(i).anos,
+          meses: data.rows.item(i).meses,
+          porte: data.rows.item(i).porte,
+          temperamento: data.rows.item(i).temperamento,
+          raca: data.rows.item(i).raca,
+          vacinado: data.rows.item(i).vacinado,
+          castrado: data.rows.item(i).castrado,
+          info: data.rows.item(i).info,
+          img: data.rows.item(i).img
+          });
+        }
+      }
+      return temps;
+    }, err => {
+      console.log('Error', err);
+      return [];
+    });
   }
 
 
