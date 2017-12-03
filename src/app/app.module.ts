@@ -10,6 +10,8 @@ import { AnimalFormPage } from '../pages/animalForm/animalForm';
 import { UserFormPage } from '../pages/userForm/userForm';
 import { ConfirmAdoptPage } from '../pages/confirmAdopt/confirmAdopt';
 import { AdoptSuccessPage } from '../pages/adoptSuccess/adoptSuccess';
+import { ListaAnimais } from '../pages/listaAnimais/listaAnimais';
+import { PesquisaAnimal} from '../pages/pesquisaAnimal/pesquisaAnimal';
 import { Storage } from '@ionic/storage';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +31,9 @@ import { SQLite } from '@ionic-native/sqlite';
     AnimalFormPage,
     UserFormPage,
     ConfirmAdoptPage,
-    AdoptSuccessPage
+    AdoptSuccessPage,
+    ListaAnimais,
+    PesquisaAnimal
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,9 @@ import { SQLite } from '@ionic-native/sqlite';
     AnimalFormPage,
     UserFormPage,
     ConfirmAdoptPage,
-    AdoptSuccessPage
+    AdoptSuccessPage,
+    ListaAnimais,
+    PesquisaAnimal
   ],
   providers: [
     StatusBar,
