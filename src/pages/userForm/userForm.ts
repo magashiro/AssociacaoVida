@@ -20,7 +20,5 @@ export class UserFormPage {
 
 	  }
 
-	removeAnimalTemp(){
-		this.databaseProvider.removeAnimalTemp();
-	}
+
 }

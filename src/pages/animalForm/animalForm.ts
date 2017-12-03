@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { UserFormPage } from '../userForm/userForm';
 import { DatabaseProvider } from './../../providers/database/database';
-import { Storage } from '@ionic/storage';
+import { AnimalProvider, Animal } from '../../providers/animal/animal';
 
 @Component({
   selector: 'page-animalForm',
@@ -11,10 +11,8 @@ import { Storage } from '@ionic/storage';
 })
 
 export class AnimalFormPage {
-  animal = {};
-  animals = [];
-  temp = {};
-  temps = [];
+  model: Animal;
+  animals: any[] = [];
 	goback() {
    		this.navCtrl.pop();
 	}
@@ -22,41 +20,24 @@ export class AnimalFormPage {
 userFormPage = UserFormPage;
 homePage = HomePage;
 
-  constructor(public navCtrl: NavController, private databaseProvider: DatabaseProvider, private platform: Platform, private storage: Storage) {
-    this.databaseProvider.getDatabaseState().subscribe(rdy =>{
-      if(rdy){
-        this.loadAnimalData();
-        this.loadAnimalDataTemp();
-      }
-  })
+  constructor(public navCtrl: NavController, private databaseProvider: DatabaseProvider, private animalProvider: AnimalProvider, private toast: ToastController) {
+    this.model = new Animal();
+
+
   }
 
-  loadAnimalData(){
-  	this.databaseProvider.getAllAnimals().then(data =>{
-  		this.animals = data;
-  	})
+  private saveAnimal(){
+    return this.animalProvider.insert(this.model);
   }
 
-  loadAnimalDataTemp(){
-    this.databaseProvider.getAllAnimalsTemp().then(data =>{
-      this.temps = data;
+  save(){
+    this.saveAnimal()
+    .then(() =>{
+      this.toast.create({message: 'Animal salvo', duration: 3000, position: 'bottom'}).present();
     })
-  }
-
-  addAnimal(){
-   	this.databaseProvider.addAnimal(this.animal['tipo'], this.animal['nome'], this.animal['sexo'], this.animal['anos'], this.animal['meses'], this.animal['porte'], this.animal['temperamento'], this.animal['raca'], this.animal['vacinado'], this.animal['castrado'], this.animal['info'], this.animal['img'])
-  	.then(data =>{
-  		this.loadAnimalData();
-  	});
-  	this.animal = {};
-  }
-
-  addAnimalTemp(){
-    this.databaseProvider.addAnimalTemp(this.temp['tipo'], this.temp['nome'], this.temp['sexo'], this.temp['anos'], this.temp['meses'], this.temp['porte'], this.temp['temperamento'], this.temp['raca'], this.temp['vacinado'], this.temp['castrado'], this.temp['info'], this.temp['img'])
-    .then(data =>{
-      this.loadAnimalDataTemp();
+    .catch(() =>{
+      this.toast.create({message: 'Erro ao salvar o animal', duration: 3000, position: 'bottom'}).present();
     });
-    this.temp = {};
   }
 
 }

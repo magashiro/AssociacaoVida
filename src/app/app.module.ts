@@ -20,6 +20,10 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule } from '@angular/http';
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
 import { SQLite } from '@ionic-native/sqlite';
+import { AnimalProvider } from '../providers/animal/animal';
+import { AdotanteProvider } from '../providers/adotante/adotante';
+import { DoadorProvider } from '../providers/doador/doador';
+import { AnimalShow } from '../pages/animalShow/animalShow';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,10 @@ import { SQLite } from '@ionic-native/sqlite';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DatabaseProvider,
     SQLitePorter,
-    SQLite
+    SQLite,
+    AnimalProvider,
+    AdotanteProvider,
+    DoadorProvider
   ]
 })
 

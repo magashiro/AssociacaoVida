@@ -6,8 +6,30 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-  <ion-content id ="corpo">
-    <div class="wrapper">
-      <button [navPush]="pesquisaAnimal" ion-button large id="btn" style="mar">Pesquisa Avançada</button>
-    </div>
+<ion-content padding id ="corpo">
+ <ion-searchbar (ionInput)="filterAnimals($event)" [(ngModel)]="searchText"></ion-searchbar>
+ <ion-list>
+  <ion-grid>
+    <ion-row wrap>
+      <ion-col col-6 *ngFor="let animal of animals">
+        <ion-item>
+         <button ion-item (click)="showAnimal(animal.id)">
+          <h1>{{ animal.img }}</h1>
+          <h2>{{ animal.nome }}</h2>
+          <h2>{{ animal.tipo }}</h2>
+          <h2>Idade: {{ animal.anos }}</h2>
+        </button>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-list>
+
+
+<p>Total de animais cadastrados: {{ animals.length }}</p>
+<div class="wrapper">
+  <button [navPush]="pesquisaAnimal" ion-button large id="btn" style="mar">Pesquisa Avançada</button>
+</div>
+
+
 </ion-content>

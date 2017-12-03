@@ -1,133 +1,51 @@
 import { Injectable } from '@angular/core';
-import { Platform } from 'ionic-angular';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
-import { SQLitePorter } from '@ionic-native/sqlite-porter';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-import { BehaviorSubject } from 'rxjs/Rx';
-import { Storage } from '@ionic/storage';
 
 @Injectable()
+
 export class DatabaseProvider {
-	database: SQLiteObject;
-	private databaseReady: BehaviorSubject<boolean>;
 
-  constructor(public sqlitePorter: SQLitePorter, private storage: Storage, private sqlite: SQLite, private platform: Platform, private http: Http) {
-    this.databaseReady = new BehaviorSubject(false);
-    this.platform.ready().then(() => {
-    	this.sqlite.create({
-    		name: 'db_av.db',
-    		location: 'default'
-    	})
-      .then((db: SQLiteObject) => {
-    		this.database = db;
-    		this.storage.get('database_filled').then(val =>{
-    			if (val) {
-    				this.databaseReady.next(true);
-    			} else{
-    				this.fillDatabase();
-    			}
-    		});
-    	});
-    });
-  }
+  constructor(private sqlite: SQLite) {}
 
-  fillDatabase(){
-  	this.http.get('assets/db_av.sql')
-  	.map(res => res.text())
-  	.subscribe(sql => {
-  		this.sqlitePorter.importSqlToDb(this.database, sql)
-  		.then(data => {
-  			this.databaseReady.next(true);
-  			this.storage.set('database_filled', true);
-  		})
-  		.catch(e => console.log(e));
-  	});
-  }
-
-  addAnimal(tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) {
-    let data = [tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img];
-    return this.database.executeSql("INSERT INTO animal (tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", data).then(data =>{
-        return data;
-      }, err =>{
-        console.log('Error', err);
-        return err;
-      });
-    }
-
-  addAnimalTemp(tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) {
-    let data = [tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img];
-    return this.database.executeSql("INSERT INTO temp (tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", data).then(data =>{
-        return data;
-      }, err =>{
-        console.log('Error', err);
-        return err;
-      });
-    }
-
-
-  removeAnimalTemp() {
-    return this.database.executeSql("DELETE FROM temp", []);
-  }
-
-  getAllAnimals(){
-  	return this.database.executeSql("SELECT * FROM animal", []).then((data) => {
-  		let animals = [];
-  		if (data.rows.length > 0){
-  			for (var i = 0; i < data.rows.length; i++){
-  				animals.push({
-  				tipo: data.rows.item(i).tipo,
-  				nome: data.rows.item(i).nome,
-  				sexo: data.rows.item(i).sexo,
-  				anos: data.rows.item(i).anos,
-  				meses: data.rows.item(i).meses,
-  				porte: data.rows.item(i).porte,
-  				temperamento: data.rows.item(i).temperamento,
-  				raca: data.rows.item(i).raca,
-  				vacinado: data.rows.item(i).vacinado,
-  				castrado: data.rows.item(i).castrado,
-  				info: data.rows.item(i).info,
-  				img: data.rows.item(i).img
-  				});
-  			}
-  		}
-  		return animals;
-  	}, err => {
-  		console.log('Error', err);
-  		return [];
-  	});
-  }
-
-  getAllAnimalsTemp(){
-    return this.database.executeSql("SELECT * FROM temp", []).then((data) => {
-      let temps = [];
-      if (data.rows.length > 0){
-        for (var i = 0; i < data.rows.length; i++){
-          temps.push({
-          tipo: data.rows.item(i).tipo,
-          nome: data.rows.item(i).nome,
-          sexo: data.rows.item(i).sexo,
-          anos: data.rows.item(i).anos,
-          meses: data.rows.item(i).meses,
-          porte: data.rows.item(i).porte,
-          temperamento: data.rows.item(i).temperamento,
-          raca: data.rows.item(i).raca,
-          vacinado: data.rows.item(i).vacinado,
-          castrado: data.rows.item(i).castrado,
-          info: data.rows.item(i).info,
-          img: data.rows.item(i).img
-          });
-        }
+      public getDB(){
+        return this.sqlite.create({
+          name: 'animal.db',
+          location: 'default'
+        });
       }
-      return temps;
-    }, err => {
-      console.log('Error', err);
-      return [];
-    });
-  }
 
+      public createDatabase(){
+        return this.getDB()
+          .then((db: SQLiteObject) =>{
+          this.createTables(db);
 
-  getDatabaseState(){
-  	return this.databaseReady.asObservable();
-  }
+          this.insertDefaultItems(db);
+          })
+          .catch(e => console.error(e));
+      }
+
+      private createTables(db: SQLiteObject){
+        db.sqlBatch([
+          ['CREATE TABLE IF NOT EXISTS animal (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, tipo TEXT, nome TEXT, sexo TEXT, anos INTEGER, meses INTEGER, porte TEXT, temperamento TEXT, raca TEXT, vacinado TEXT, castrado TEXT, info TEXT, img TEXT, id_adotante INTEGER, id_doador INTEGER, FOREIGN KEY (id_adotante) REFERENCES adotante (id), FOREIGN KEY (id_doador) REFERENCES doador(id))'],
+          ['CREATE TABLE IF NOT EXISTS adotante (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nome TEXT, endereco TEXT, bairro TEXT, cidade TEXT, telefone INTEGER, email TEXT, rg TEXT, cpf TEXT)'],
+          ['CREATE TABLE IF NOT EXISTS doador (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nome TEXT, cidade TEXT, telefone INTEGER, email TEXT)']
+        ])
+        .then(() => console.log('Tabelas Criadas'))
+        .catch(e => console.error('Erro ao criar as tabelas', e));
+      }
+
+      private insertDefaultItems(db: SQLiteObject){
+        db.executeSql('select COUNT(id) as qtd from animal', {})
+        .then((data: any) =>{
+          if (data.rows.item(0).qtd == 0){
+            db.sqlBatch([
+              ['INSERT INTO animal (tipo, nome, sexo, anos, meses, porte, temperamento, raca, vacinado, castrado, info, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['cão', 'pan1', 'F', 7, 5, 'pequeno', 'dócil', 'SRD', 'sim', 'sim', 'nenhuma info', 'img']]
+            ])
+            .then(() => console.log('Dados padrões incluídos'))
+            .catch(e => console.error('Erro ao incluir dados padrões', e));
+          }
+        })
+        .catch(e => console.error('Erro ao consultar a qtd de animais', e));
+      }
+
 }
