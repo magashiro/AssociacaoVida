@@ -24,6 +24,9 @@ import { AnimalProvider } from '../providers/animal/animal';
 import { AdotanteProvider } from '../providers/adotante/adotante';
 import { DoadorProvider } from '../providers/doador/doador';
 import { AnimalShow } from '../pages/animalShow/animalShow';
+import { AdoptFormPage } from '../pages/adoptForm/adoptForm';
+import { QuestionPage } from '../pages/question/question';
+import { DonateSuccessPage } from '../pages/donateSuccess/donateSuccess';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { AnimalShow } from '../pages/animalShow/animalShow';
     ConfirmAdoptPage,
     AdoptSuccessPage,
     ListaAnimais,
-    PesquisaAnimal
+    PesquisaAnimal,
+    AdoptFormPage,
+    QuestionPage,
+    DonateSuccessPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +63,10 @@ import { AnimalShow } from '../pages/animalShow/animalShow';
     ConfirmAdoptPage,
     AdoptSuccessPage,
     ListaAnimais,
-    PesquisaAnimal
+    PesquisaAnimal,
+    AdoptFormPage,
+    QuestionPage,
+    DonateSuccessPage
   ],
   providers: [
     StatusBar,

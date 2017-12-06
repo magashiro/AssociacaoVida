@@ -32,9 +32,7 @@ homePage = HomePage;
 
   save(){
     this.saveAnimal()
-    .then(() =>{
-      this.toast.create({message: 'Animal salvo', duration: 3000, position: 'bottom'}).present();
-    })
+    .then(() =>{})
     .catch(() =>{
       this.toast.create({message: 'Erro ao salvar o animal', duration: 3000, position: 'bottom'}).present();
     });

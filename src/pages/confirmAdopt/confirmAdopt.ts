@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AdoptSuccessPage } from '../adoptSuccess/adoptSuccess';
-import { AnimalFormPage } from '../animalForm/animalForm';
-import { DatabaseProvider } from './../../providers/database/database';
 import { UserFormPage } from '../userForm/userForm';
+import { DatabaseProvider } from './../../providers/database/database';
 import { Storage } from '@ionic/storage';
+import { AdoptSuccessPage } from '../adoptSuccess/adoptSuccess';
 
 @Component({
   selector: 'page-confirmAdopt',
@@ -16,7 +15,6 @@ export class ConfirmAdoptPage {
 	   this.navCtrl.pop();
 	}
 
-	animalFormPage = AnimalFormPage;
 	userFormPage = UserFormPage;
 	adoptSuccessPage = AdoptSuccessPage;
 

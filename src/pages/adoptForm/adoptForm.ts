@@ -1,24 +1,22 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AnimalFormPage } from '../animalForm/animalForm';
-import { DonateSuccessPage } from '../donateSuccess/donateSuccess';
+import { QuestionPage } from '../question/question';
 import { DatabaseProvider } from './../../providers/database/database';
 import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'page-userForm',
-  templateUrl: 'userForm.html'
+  selector: 'page-adoptForm',
+  templateUrl: 'adoptForm.html'
 })
-export class UserFormPage {
+export class AdoptFormPage {
 
 	goback() {
 	   this.navCtrl.pop();
 	}
-	donateSuccessPage = DonateSuccessPage;
-	animalFormPage = AnimalFormPage;
+	
 	  constructor(public navCtrl: NavController, private databaseProvider: DatabaseProvider, private storage: Storage) {
 
 	  }
-
+questionPage = QuestionPage;
 
 }

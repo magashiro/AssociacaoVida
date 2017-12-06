@@ -8,6 +8,26 @@
 
 <ion-content padding>
 	<ion-item>
-		{{ model.tipo }}, {{ model.nome }}, {{ model.sexo }}
+		<ion-card>
+			<ion-card-header>
+				{{ model.img }}
+			</ion-card-header>
+			<ion-card-content>
+				{{ model.tipo }}, {{ model.nome }}, {{ model.sexo }}, {{ model.anos }}, Porte {{ model.porte }}<br>, {{ model.temperamento }}, {{ model.raca }}, {{ model.vacinado }} e {{ model.castrado }}. <br><br>{{ model.info }}
+			</ion-card-content>
+		</ion-card>
 	</ion-item>
+
+  <ion-footer>
+    <ion-grid>
+      <div class="row row-bottom">
+        <div class="col .col-50">
+          <button (click)="goback()" ion-button large id = "btn">Voltar</button>
+        </div>
+        <div class="col .col-50">
+          <button ion-button large id = "btn" [navPush]="adoptFormPage">Adotar</button>
+        </div>
+      </div>
+    </ion-grid>
+  </ion-footer>
 </ion-content>

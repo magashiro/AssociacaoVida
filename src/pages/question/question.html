@@ -1,0 +1,91 @@
+<ion-header id = "cab">
+  <ion-navbar>
+    <ion-title id ="titulo">
+      Responda as Perguntas
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="has-footer">
+
+  <ion-list>
+    <ion-item no-lines>
+      <ion-label>Você possui outros animais?</ion-label>
+      <ion-select>
+        <ion-option value="s">Sim</ion-option>
+        <ion-option value="n">Não</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label>Você possui casa própria?</ion-label>
+      <ion-select>
+        <ion-option value="s">Sim</ion-option>
+        <ion-option value="n">Não</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label>Você é maior de 18 anos?</ion-label>
+      <ion-select>
+        <ion-option value="s">Sim</ion-option>
+        <ion-option value="n">Não</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label>Está atualmente empregado(a)?</ion-label>
+      <ion-select>
+        <ion-option value="s">Sim</ion-option>
+        <ion-option value="n">Não</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label>Sua casa possui quintal?</ion-label>
+      <ion-select>
+        <ion-option value="s">Sim</ion-option>
+        <ion-option value="n">Não</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label>O animal terá acesso à rua?</ion-label>
+      <ion-select>
+        <ion-option value="s">Sim</ion-option>
+        <ion-option value="n">Não</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label>Concorda em receber visitas periódicas?</ion-label>
+      <ion-select>
+        <ion-option value="s">Sim</ion-option>
+        <ion-option value="n">Não</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label>Assinaria um termo de responsabilidade?</ion-label>
+      <ion-select>
+        <ion-option value="s">Sim</ion-option>
+        <ion-option value="n">Não</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-footer>
+    <ion-grid>
+      <div class="row row-bottom">
+        <div class="col .col-50">
+          <button (click)="goback()" ion-button large id = "btn">Voltar</button>
+        </div>
+        <div class="col .col-50">
+          <button ion-button large id = "btn" [navPush]="adoptSuccessPage">Próximo</button>
+        </div>
+      </div>
+    </ion-grid>
+  </ion-footer>
+
+
+</ion-content>

@@ -3,6 +3,7 @@ import { NavController, IonicPage, NavParams, ToastController, IonicPage } from 
 import { ListaAnimais } from '../listaAnimais/listaAnimais';
 import { Storage } from '@ionic/storage';
 import { AnimalProvider, Animal } from '../../providers/animal/animal';
+import { AdoptFormPage } from '../adoptForm/adoptForm';
 
 @IonicPage()
 @Component({
@@ -41,6 +42,6 @@ export class AnimalShow {
 		});
 		
 	}
-
+adoptFormPage = AdoptFormPage;
 listaAnimais = ListaAnimais;
 }

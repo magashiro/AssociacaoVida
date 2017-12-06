@@ -1,7 +1,7 @@
 <ion-header id = "cab">
   <ion-navbar>
     <ion-title id ="titulo">
-      Informações do Usuário
+      Preencha seus Dados
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -15,8 +15,18 @@
     </ion-item>
 
     <ion-item no-lines>
-      <ion-label>Cidade:</ion-label>
+      <ion-label>Endereço:</ion-label>
+      <ion-textarea type="text" maxlength="140"></ion-textarea>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label>Bairro:</ion-label>
       <ion-input type="text" maxlength="20"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label>Cidade:</ion-label>
+      <ion-input type="text" maxlength="30"></ion-input>
     </ion-item>
 
     <ion-item no-lines>
@@ -25,8 +35,18 @@
     </ion-item>
 
     <ion-item no-lines>
-      <ion-label>E-mail:</ion-label>
+      <ion-label>Email:</ion-label>
       <ion-input type="email" maxlength="30"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label>RG:</ion-label>
+      <ion-input type="tel" maxlength="11"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label>CPF:</ion-label>
+      <ion-input type="tel" maxlength="11"></ion-input>
     </ion-item>
   </ion-list>
 
@@ -37,7 +57,7 @@
           <button (click)="goback()" ion-button large id = "btn">Voltar</button>
         </div>
         <div class="col .col-50">
-          <button ion-button large id = "btn" [navPush]="donateSuccessPage">Próximo</button>
+          <button ion-button large id = "btn" [navPush]="questionPage">Próximo</button>
         </div>
       </div>
     </ion-grid>

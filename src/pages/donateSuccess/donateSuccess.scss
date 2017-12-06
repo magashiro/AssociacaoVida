@@ -1,4 +1,4 @@
-page-animalShow{
+page-donateSuccess {
   #titulo {
     font-style: arial;
     text-align: center;
@@ -7,13 +7,11 @@ page-animalShow{
     border-radius: 7px;
     width: 100%;
     }
-
   .wrapper {
   text-align: center;
 
   }
 
-}
 
 ::-webkit-input-placeholder {
    font-style: italic;
@@ -26,4 +24,5 @@ page-animalShow{
 }
 :-ms-input-placeholder {  
    font-style: italic; 
+}
 }
