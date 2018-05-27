@@ -10,9 +10,8 @@ import { AnimalFormPage } from '../pages/animalForm/animalForm';
 import { UserFormPage } from '../pages/userForm/userForm';
 import { ConfirmAdoptPage } from '../pages/confirmAdopt/confirmAdopt';
 import { AdoptSuccessPage } from '../pages/adoptSuccess/adoptSuccess';
-import { ListaAnimais } from '../pages/listaAnimais/listaAnimais';
+import { AnimalList } from '../pages/animalList/animalList';
 import { PesquisaAnimal} from '../pages/pesquisaAnimal/pesquisaAnimal';
-import { Storage } from '@ionic/storage';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DatabaseProvider } from '../providers/database/database';
@@ -23,7 +22,6 @@ import { SQLite } from '@ionic-native/sqlite';
 import { AnimalProvider } from '../providers/animal/animal';
 import { AdotanteProvider } from '../providers/adotante/adotante';
 import { DoadorProvider } from '../providers/doador/doador';
-import { AnimalShow } from '../pages/animalShow/animalShow';
 import { AdoptFormPage } from '../pages/adoptForm/adoptForm';
 import { QuestionPage } from '../pages/question/question';
 import { DonateSuccessPage } from '../pages/donateSuccess/donateSuccess';
@@ -39,7 +37,7 @@ import { DonateSuccessPage } from '../pages/donateSuccess/donateSuccess';
     UserFormPage,
     ConfirmAdoptPage,
     AdoptSuccessPage,
-    ListaAnimais,
+    AnimalList,
     PesquisaAnimal,
     AdoptFormPage,
     QuestionPage,
@@ -62,7 +60,7 @@ import { DonateSuccessPage } from '../pages/donateSuccess/donateSuccess';
     UserFormPage,
     ConfirmAdoptPage,
     AdoptSuccessPage,
-    ListaAnimais,
+    AnimalList,
     PesquisaAnimal,
     AdoptFormPage,
     QuestionPage,

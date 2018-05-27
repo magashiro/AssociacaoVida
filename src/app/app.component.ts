@@ -4,14 +4,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { DatabaseProvider } from '../providers/database/database';
+import { Keyboard } from '@ionic-native/keyboard';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [Keyboard]
 })
 export class MyApp {
   rootPage:any = null; 
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, dbProvider: DatabaseProvider) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, dbProvider: DatabaseProvider, private keyboard: Keyboard) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
@@ -22,7 +24,14 @@ export class MyApp {
       })
       .catch(() => {
       	this.openTabsPage(splashScreen);
-      })
+      });
+      this.keyboard.onKeyboardShow().subscribe(() => {
+          document.body.classList.add('keyboard-is-open');
+      });
+
+      this.keyboard.onKeyboardHide().subscribe(() => {
+          document.body.classList.remove('keyboard-is-open');
+      });
     });
   }
 
@@ -30,5 +39,4 @@ export class MyApp {
   	splashScreen.hide();
   	this.rootPage = TabsPage;
   }
-
 }

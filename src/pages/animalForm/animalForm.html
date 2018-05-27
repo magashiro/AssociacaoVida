@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content scrollbar-y-auto>
+
 	<ion-list>
 		<ion-item no-lines>
 			<ion-label>Tipo:</ion-label>
@@ -24,8 +25,8 @@
 		<ion-item no-lines>
 			<ion-label>Sexo:</ion-label>
 			<ion-select name="sexo" [(ngModel)]="model.sexo">
-				<ion-option value="f">Fêmea</ion-option>
-				<ion-option value="m">Macho</ion-option>
+				<ion-option value="fêmea">Fêmea</ion-option>
+				<ion-option value="macho">Macho</ion-option>
 			</ion-select>
 		</ion-item>
 
@@ -74,16 +75,16 @@
 		<ion-item no-lines>
 			<ion-label>Vacinado:</ion-label>
 			<ion-select name="vacinado" [(ngModel)]="model.vacinado">
-				<ion-option value="s">Sim</ion-option>
-				<ion-option value="n">Não</ion-option>
+				<ion-option value="vacinado">Sim</ion-option>
+				<ion-option value="não vacinado">Não</ion-option>
 			</ion-select>
 		</ion-item>
 
 		<ion-item no-lines>
 			<ion-label>Castrado:</ion-label>
 			<ion-select name="castrado" [(ngModel)]="model.castrado">
-				<ion-option value="s">Sim</ion-option>
-				<ion-option value="n">Não</ion-option>
+				<ion-option value="castrado">Sim</ion-option>
+				<ion-option value="não castrado">Não</ion-option>
 			</ion-select>
 		</ion-item>
 
@@ -98,26 +99,17 @@
 			<ion-input name="img" [(ngModel)]="model.img"></ion-input>
 		</ion-item>
 	</ion-list>
-<br/>
-<br/>
-<p>{{model.nome}}</p>
-<p>{{model.tipo}}</p>
-<!-- 		<ion-list>
-			<ion-item *ngFor="let animal of animals">
-				<h2>{{ animal.nome }}</h2>
-				<p>{{ animal.tipo }}</p>
-			</ion-item>
-		</ion-list> -->
-
-
-
-			<div class="row row-bottom">
-				<div class="col .col-50">
-					<button (click)="goback()" ion-button large id = "btn">Voltar</button>
-				</div>
-				<div class="col .col-50">
-					<button (click)="save()" [navPush]="userFormPage" ion-button large id="btn">Próximo</button>
-				</div>
-			</div>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<div class="row row-bottom">
+		<div class="col .col-50">
+			<button (click)="goback()" ion-button large id = "btn">Voltar</button>
+		</div>
+		<div class="col .col-50">
+			<button ion-button large (click)="save()" id="btn">Próximo</button>
+		</div>
+	</div>
 
 	</ion-content>

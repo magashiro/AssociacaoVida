@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, Platform, ToastController } from 'ionic-angular';
-import { ListaAnimais } from '../listaAnimais/listaAnimais';
-import { Storage } from '@ionic/storage';
-import { AnimalProvider, Animal } from '../../providers/animal/animal';
+import { NavController } from 'ionic-angular';
+import { AnimalList } from '../animalList/animalList';
 
 @Component({
   selector: 'pesquisaAnimal',
@@ -13,7 +11,7 @@ import { AnimalProvider, Animal } from '../../providers/animal/animal';
 
 export class PesquisaAnimal {
 
-constructor(public navCtrl: NavController, private toast: ToastController, private animalProvider: AnimalProvider) {
+constructor(public navCtrl: NavController) {
 
   }
 
@@ -21,5 +19,5 @@ constructor(public navCtrl: NavController, private toast: ToastController, priva
    		this.navCtrl.pop();
 	}
 
-listaAnimais = ListaAnimais;
+animalList = AnimalList;
 }

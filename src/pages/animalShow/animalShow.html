@@ -25,7 +25,7 @@
           <button (click)="goback()" ion-button large id = "btn">Voltar</button>
         </div>
         <div class="col .col-50">
-          <button ion-button large id = "btn" [navPush]="adoptFormPage">Adotar</button>
+          <button ion-button large id = "btn" (click)="save()">Adotar</button>
         </div>
       </div>
     </ion-grid>

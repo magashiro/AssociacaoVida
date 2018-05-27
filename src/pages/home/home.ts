@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AnimalFormPage } from '../animalForm/animalForm';
-import { ListaAnimais } from '../listaAnimais/listaAnimais';
+import { AnimalList } from '../animalList/animalList';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-listaAnimais = ListaAnimais;
+animalList = AnimalList;
 animalFormPage = AnimalFormPage;
   constructor(public navCtrl: NavController) {
 

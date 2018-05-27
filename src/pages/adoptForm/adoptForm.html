@@ -11,57 +11,56 @@
   <ion-list>
     <ion-item no-lines>
       <ion-label>Nome:</ion-label>
-      <ion-input type="text" maxlength="20"></ion-input>
+      <ion-input [(ngModel)]="modelAdotante.nome" type="text" maxlength="20"></ion-input>
     </ion-item>
 
     <ion-item no-lines>
       <ion-label>Endereço:</ion-label>
-      <ion-textarea type="text" maxlength="140"></ion-textarea>
+      <ion-textarea [(ngModel)]="modelAdotante.endereco" type="text" maxlength="140"></ion-textarea>
     </ion-item>
 
     <ion-item no-lines>
       <ion-label>Bairro:</ion-label>
-      <ion-input type="text" maxlength="20"></ion-input>
+      <ion-input [(ngModel)]="modelAdotante.bairro" type="text" maxlength="20"></ion-input>
     </ion-item>
 
     <ion-item no-lines>
       <ion-label>Cidade:</ion-label>
-      <ion-input type="text" maxlength="30"></ion-input>
+      <ion-input [(ngModel)]="modelAdotante.cidade" type="text" maxlength="30"></ion-input>
     </ion-item>
 
     <ion-item no-lines>
       <ion-label>Telefone:</ion-label>
-      <ion-input type="tel" maxlength="12"></ion-input>
+      <ion-input [(ngModel)]="modelAdotante.telefone" type="tel" maxlength="12"></ion-input>
     </ion-item>
 
     <ion-item no-lines>
       <ion-label>Email:</ion-label>
-      <ion-input type="email" maxlength="30"></ion-input>
+      <ion-input [(ngModel)]="modelAdotante.email" type="email" maxlength="30"></ion-input>
     </ion-item>
 
     <ion-item no-lines>
       <ion-label>RG:</ion-label>
-      <ion-input type="tel" maxlength="11"></ion-input>
+      <ion-input [(ngModel)]="modelAdotante.rg" type="tel" maxlength="11"></ion-input>
     </ion-item>
 
     <ion-item no-lines>
       <ion-label>CPF:</ion-label>
-      <ion-input type="tel" maxlength="11"></ion-input>
+      <ion-input [(ngModel)]="modelAdotante.cpf" type="tel" maxlength="11"></ion-input>
     </ion-item>
   </ion-list>
-
-  <ion-footer>
-    <ion-grid>
-      <div class="row row-bottom">
-        <div class="col .col-50">
-          <button (click)="goback()" ion-button large id = "btn">Voltar</button>
-        </div>
-        <div class="col .col-50">
-          <button ion-button large id = "btn" [navPush]="questionPage">Próximo</button>
-        </div>
-      </div>
-    </ion-grid>
-  </ion-footer>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <div class="row row-bottom hideElementOnKeyboardShown">
+    <div class="col .col-50">
+      <button (click)="goback()" ion-button large id = "btn">Voltar</button>
+    </div>
+    <div class="col .col-50">
+      <button ion-button large (click)="save()" id="btn">Próximo</button>
+    </div>
+  </div>
 
 
 </ion-content>

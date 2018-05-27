@@ -1,19 +1,17 @@
 import { Component } from '@angular/core';
-import { NavController, Platform, ToastController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { HomePage } from '../home/home';
-import { Storage } from '@ionic/storage';
 import { PesquisaAnimal } from '../pesquisaAnimal/pesquisaAnimal'
-import { AnimalProvider, Animal } from '../../providers/animal/animal';
+import { AnimalProvider } from '../../providers/animal/animal';
 
 
 @Component({
-  selector: 'page-listaAnimais',
-  templateUrl: 'listaAnimais.html'
+  selector: 'page-animalList',
+  templateUrl: 'animalList.html'
 })
 
-export class ListaAnimais {
+export class AnimalList {
   animals: any[] = [];
-  onlyNonAdopted: string = null;
   searchText: string = null;
 
 
@@ -24,7 +22,14 @@ export class ListaAnimais {
   }
 
   ionViewDidEnter(){
-  	this.getAllAnimals();
+  	this.getNewAnimals();
+  }
+
+  getNewAnimals(){
+    this.animalProvider.getNew(this.searchText)
+    .then((result: any[]) =>{
+      this.animals = result;
+    });
   }
 
   showAnimal(id: number){
@@ -39,7 +44,7 @@ export class ListaAnimais {
   }
 
   filterAnimals(ev: any){
-  	this.getAllAnimals();
+  	this.getNewAnimals();
   }
 
   goback() {

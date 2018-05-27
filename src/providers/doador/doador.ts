@@ -1,18 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { SQLiteObject } from '@ionic-native/sqlite';
+import { DatabaseProvider } from '../database/database';
 
-/*
-  Generated class for the DoadorProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class DoadorProvider {
 
-  constructor(public http: Http) {
-    console.log('Hello DoadorProvider Provider');
+  constructor(private dbProvider: DatabaseProvider) {
   }
 
+    public insertDoador(doador: Doador){
+      return this.dbProvider.getDB()
+      .then((db: SQLiteObject) =>{
+      let sql = 'INSERT INTO doador (nome, cidade, telefone, email, rg, cpf) VALUES (?, ?, ?, ?, ?, ?)';
+      let data = [doador.nome, doador.cidade, doador.telefone, doador.email, doador.rg, doador.cpf];
+
+      return db.executeSql(sql, data)
+      .catch((e) => console.error(e));
+      })
+      .catch((e) => console.error(e));
+    }
+
+}
+export class Doador{
+	id: number;
+	nome: string;
+	cidade: string;
+	telefone: number;
+	email: string;
+  rg: string;
+  cpf: string
 }

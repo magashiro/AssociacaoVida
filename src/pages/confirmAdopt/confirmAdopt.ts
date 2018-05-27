@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { UserFormPage } from '../userForm/userForm';
-import { DatabaseProvider } from './../../providers/database/database';
-import { Storage } from '@ionic/storage';
 import { AdoptSuccessPage } from '../adoptSuccess/adoptSuccess';
 
 @Component({
@@ -18,7 +16,7 @@ export class ConfirmAdoptPage {
 	userFormPage = UserFormPage;
 	adoptSuccessPage = AdoptSuccessPage;
 
-	constructor(public navCtrl: NavController, private databaseProvider: DatabaseProvider, private storage: Storage) {
+	constructor(public navCtrl: NavController) {
 
 	}
 

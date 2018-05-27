@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { UserFormPage } from '../userForm/userForm';
-import { DatabaseProvider } from './../../providers/database/database';
 import { AnimalProvider, Animal } from '../../providers/animal/animal';
 
 @Component({
+
   selector: 'page-animalForm',
   templateUrl: 'animalForm.html'
 })
@@ -20,21 +20,24 @@ export class AnimalFormPage {
 userFormPage = UserFormPage;
 homePage = HomePage;
 
-  constructor(public navCtrl: NavController, private databaseProvider: DatabaseProvider, private animalProvider: AnimalProvider, private toast: ToastController) {
+  constructor(public navCtrl: NavController) {
     this.model = new Animal();
-
-
-  }
-
-  private saveAnimal(){
-    return this.animalProvider.insert(this.model);
   }
 
   save(){
-    this.saveAnimal()
-    .then(() =>{})
-    .catch(() =>{
-      this.toast.create({message: 'Erro ao salvar o animal', duration: 3000, position: 'bottom'}).present();
+    this.navCtrl.push(UserFormPage, {
+      nome: this.model.nome,
+      tipo: this.model.tipo,
+      sexo: this.model.sexo,
+      anos: this.model.anos,
+      meses: this.model.meses,
+      porte: this.model.porte,
+      temperamento: this.model.temperamento,
+      raca: this.model.raca,
+      vacinado: this.model.vacinado,
+      castrado: this.model.castrado,
+      info: this.model.info,
+      img: this.model.img
     });
   }
 

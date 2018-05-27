@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage, NavParams, ToastController, IonicPage } from 'ionic-angular';
-import { ListaAnimais } from '../listaAnimais/listaAnimais';
-import { Storage } from '@ionic/storage';
+import { AnimalList } from '../animalList/animalList';
 import { AnimalProvider, Animal } from '../../providers/animal/animal';
 import { AdoptFormPage } from '../adoptForm/adoptForm';
 
@@ -29,19 +28,25 @@ export class AnimalShow {
 				this.model = result;
 			})
 		}
-
 	}
 
 	ionViewDidLoad(){
-		this.animalProvider.getAll()
+		this.animalProvider.getNew()
 		.then((result: any[]) =>{
 			this.animals = result;
 		})
 		.catch(() =>{
 			this.toast.create({message: 'Erro ao carregar o animal', duration: 3000, position: 'bottom'}).present();
-		});
-		
+		});	
 	}
+
+	save(){
+		this.navCtrl.push(AdoptFormPage, {
+			id: this.model.id
+		})
+	}
+
+
 adoptFormPage = AdoptFormPage;
-listaAnimais = ListaAnimais;
+animalList = AnimalList;
 }
