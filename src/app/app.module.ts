@@ -25,7 +25,9 @@ import { DoadorProvider } from '../providers/doador/doador';
 import { AdoptFormPage } from '../pages/adoptForm/adoptForm';
 import { QuestionPage } from '../pages/question/question';
 import { DonateSuccessPage } from '../pages/donateSuccess/donateSuccess';
-
+import { Camera } from '@ionic-native/camera';
+import { Base64ToGallery} from '@ionic-native/base64-to-gallery';
+import { PhotoLibrary } from '@ionic-native/photo-library';
 @NgModule({
   declarations: [
     MyApp,
@@ -75,7 +77,10 @@ import { DonateSuccessPage } from '../pages/donateSuccess/donateSuccess';
     SQLite,
     AnimalProvider,
     AdotanteProvider,
-    DoadorProvider
+    DoadorProvider,
+    Camera,
+    Base64ToGallery,
+    PhotoLibrary
   ]
 })
 

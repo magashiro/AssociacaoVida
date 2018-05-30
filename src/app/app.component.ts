@@ -5,13 +5,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { DatabaseProvider } from '../providers/database/database';
 import { Keyboard } from '@ionic-native/keyboard';
+import { Camera } from '@ionic-native/camera';
+import { Base64ToGallery} from '@ionic-native/base64-to-gallery';
+import { PhotoLibrary } from '@ionic-native/photo-library';
 
 @Component({
   templateUrl: 'app.html',
   providers: [Keyboard]
 })
 export class MyApp {
-  rootPage:any = null; 
+  rootPage:any = null;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, dbProvider: DatabaseProvider, private keyboard: Keyboard) {
     platform.ready().then(() => {
