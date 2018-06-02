@@ -14,7 +14,7 @@
       <ion-col col-6 *ngFor="let animal of animals">
         <ion-item>
          <button ion-item (click)="showAnimal(animal.id)">
-          <h1>{{ animal.img }}</h1>
+          <img src="{{animal.img}}">
           <h2>{{ animal.nome }}</h2>
           <h2>{{ animal.tipo }}</h2>
           <h2>Idade: {{ animal.anos }}</h2>

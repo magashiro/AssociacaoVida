@@ -25,9 +25,10 @@ import { DoadorProvider } from '../providers/doador/doador';
 import { AdoptFormPage } from '../pages/adoptForm/adoptForm';
 import { QuestionPage } from '../pages/question/question';
 import { DonateSuccessPage } from '../pages/donateSuccess/donateSuccess';
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
-import { Base64ToGallery} from '@ionic-native/base64-to-gallery';
-import { PhotoLibrary } from '@ionic-native/photo-library';
 @NgModule({
   declarations: [
     MyApp,
@@ -78,9 +79,10 @@ import { PhotoLibrary } from '@ionic-native/photo-library';
     AnimalProvider,
     AdotanteProvider,
     DoadorProvider,
+    File,
+    Transfer,
     Camera,
-    Base64ToGallery,
-    PhotoLibrary
+    FilePath
   ]
 })
 

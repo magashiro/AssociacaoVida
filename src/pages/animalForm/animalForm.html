@@ -95,8 +95,10 @@
 		</ion-item>
 
 		<ion-item no-lines>
-			<ion-label stacked>Imagem</ion-label>
-			<ion-input name="img" value="get"onclick="getAlbums()" [(ngModel)]="model.img"></ion-input>
+			<button stacked text-align="center" id = "btn" ion-button large name="img" (click)="presentActionSheet()">Selecione uma imagem</button>
+			<ion-card>
+		  		<img src="{{pathForImage(lastImage)}}" style="width: 100%">
+		  </ion-card>
 		</ion-item>
 	</ion-list>
 	<br/>
