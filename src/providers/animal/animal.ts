@@ -22,6 +22,30 @@ export class AnimalProvider {
   		.catch((e) => console.error(e));
   	}
 
+    public acceptAdopt(id: number){
+      return this.dbProvider.getDB()
+      .then((db: SQLiteObject) =>{
+      let sql = 'UPDATE animal set status = "Adopted" where id = ?';
+      let data = [id];
+
+      return db.executeSql(sql, data)
+      .catch((e) => console.error(e));
+      })
+      .catch((e) => console.error(e));
+    }
+
+    public rejectAdopt(id: number){
+      return this.dbProvider.getDB()
+      .then((db: SQLiteObject) =>{
+      let sql = 'UPDATE animal set status = "New" where id = ?';
+      let data = [id];
+
+      return db.executeSql(sql, data)
+      .catch((e) => console.error(e));
+      })
+      .catch((e) => console.error(e));
+    }
+
     public updateIdAdotante(cpf: string, id: number){
   		return this.dbProvider.getDB()
   		.then((db: SQLiteObject) =>{
