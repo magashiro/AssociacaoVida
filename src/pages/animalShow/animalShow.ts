@@ -21,7 +21,7 @@ export class AnimalShow {
 	constructor(public navCtrl: NavController, public navParams: NavParams, private animalProvider: AnimalProvider, private toast: ToastController) {
 
 		this.model = new Animal();
-		
+		this.model.id = navParams.get('id');
 		if (this.navParams.data.id){
 			this.animalProvider.get(this.navParams.data.id)
 			.then((result: any) =>{

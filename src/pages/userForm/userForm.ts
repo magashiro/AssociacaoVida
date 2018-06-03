@@ -3,7 +3,6 @@ import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { AnimalFormPage } from '../animalForm/animalForm';
 import { DonateSuccessPage } from '../donateSuccess/donateSuccess';
 import { AnimalProvider, Animal } from '../../providers/animal/animal';
-import { DoadorProvider, Doador } from '../../providers/doador/doador';
 
 @Component({
   selector: 'page-userForm',
@@ -11,15 +10,13 @@ import { DoadorProvider, Doador } from '../../providers/doador/doador';
 })
 export class UserFormPage {
 	modelAnimal: Animal;
-	modelDoador: Doador;
 
 	goback() {
 	   this.navCtrl.pop();
 	}
 	donateSuccessPage = DonateSuccessPage;
 	animalFormPage = AnimalFormPage;
-	  constructor(public navCtrl: NavController, private doadorProvider: DoadorProvider, private animalProvider: AnimalProvider, public navParams: NavParams, private toast: ToastController) {
-	  	this.modelDoador = new Doador();
+	  constructor(public navCtrl: NavController, private animalProvider: AnimalProvider, public navParams: NavParams, private toast: ToastController) {
 	  	this.modelAnimal = new Animal();
 	  	this.modelAnimal.nome = navParams.get('nome');
 	  	this.modelAnimal.tipo = navParams.get('tipo');
@@ -32,7 +29,7 @@ export class UserFormPage {
 	  	this.modelAnimal.vacinado = navParams.get('vacinado');
 	  	this.modelAnimal.castrado = navParams.get('castrado');
 	  	this.modelAnimal.info = navParams.get('info');
-	  	this.modelAnimal.img = navParams.get('img'); 	
+	  	this.modelAnimal.img = navParams.get('img');
 	  }
 
 	save(){
@@ -41,31 +38,10 @@ export class UserFormPage {
 		.catch(() =>{
 			this.toast.create({message: 'Erro ao salvar o animal', duration: 3000, position: 'bottom'}).present();
 		});
-
-		this.saveDoador()
-		.then(() =>{})
-		.catch(() =>{
-			this.toast.create({message: 'Erro ao salvar o doador', duration: 3000, position: 'bottom'}).present();
-		});
-
-		this.linkAnimalDoador()
-		.then(() =>{})
-		.catch(() =>{
-			this.toast.create({message: 'Erro ao linkar o doador', duration: 3000, position: 'bottom'}).present();
-		});
 	};
 
-	private saveDoador(){
-		return this.doadorProvider.insertDoador(this.modelDoador);
-	}
 
 	private saveAnimal(){
 		return this.animalProvider.insertAnimal(this.modelAnimal);
 	}
-
-	private linkAnimalDoador(){
-		return this.animalProvider.updateIdDoador(this.modelDoador.cpf);
-	}
-
-
 }

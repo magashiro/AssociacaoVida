@@ -33,7 +33,9 @@ export class AnimalList {
   }
 
   showAnimal(id: number){
-  	this.navCtrl.push('AnimalShow', { id: id});
+  	this.navCtrl.push('AnimalShow', { 
+      id: id
+    });
   }
 
   getAllAnimals(){

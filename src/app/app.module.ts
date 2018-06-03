@@ -21,7 +21,6 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter';
 import { SQLite } from '@ionic-native/sqlite';
 import { AnimalProvider } from '../providers/animal/animal';
 import { AdotanteProvider } from '../providers/adotante/adotante';
-import { DoadorProvider } from '../providers/doador/doador';
 import { AdoptFormPage } from '../pages/adoptForm/adoptForm';
 import { QuestionPage } from '../pages/question/question';
 import { DonateSuccessPage } from '../pages/donateSuccess/donateSuccess';
@@ -78,7 +77,6 @@ import { Camera } from '@ionic-native/camera';
     SQLite,
     AnimalProvider,
     AdotanteProvider,
-    DoadorProvider,
     File,
     Transfer,
     Camera,

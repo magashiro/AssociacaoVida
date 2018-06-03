@@ -49,7 +49,7 @@ homePage = HomePage;
           }
         },
         {
-          text: 'Cancel',
+          text: 'Cancelar',
           role: 'cancel'
         }
       ]
@@ -115,8 +115,10 @@ homePage = HomePage;
     }
   }
 
+
+
   save(){
-    if (this.validateFields()){
+    // if (this.validateFields()){
       this.navCtrl.push(UserFormPage, {
         nome: this.model.nome,
         tipo: this.model.tipo,
@@ -131,7 +133,7 @@ homePage = HomePage;
         info: this.model.info,
         img: this.pathForImage(this.lastImage)
       });
-    }
+    // }
   }
 
   validateFields(){
@@ -152,7 +154,6 @@ homePage = HomePage;
     if(field != '' && field != undefined && field.length >= minChar){
       return true;
     }else{
-      this.presentToast("O campo " + field + " é obrigatório!");
       return false;
     }
   }

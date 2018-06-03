@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { QuestionPage } from '../question/question';
 import { AdotanteProvider, Adotante } from '../../providers/adotante/adotante';
 import { AnimalProvider, Animal } from '../../providers/animal/animal';
@@ -16,9 +16,10 @@ export class AdoptFormPage {
 	   this.navCtrl.pop();
 	}
 	
-  constructor(public navCtrl: NavController, private adotanteProvider: AdotanteProvider, private animalProvider: AnimalProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private adotanteProvider: AdotanteProvider, private animalProvider: AnimalProvider) {
   	this.modelAdotante = new Adotante();
     this.modelAnimal = new Animal();
+    this.modelAnimal.id = navParams.get('id');
   }
 
   save(){
