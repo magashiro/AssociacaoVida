@@ -33,15 +33,38 @@ export class UserFormPage {
 	  }
 
 	save(){
-		this.saveAnimal()
-		.then(() =>{})
-		.catch(() =>{
-			this.toast.create({message: 'Erro ao salvar o animal', duration: 3000, position: 'bottom'}).present();
-		});
+		if(this.validateFields()){
+			this.saveAnimal()
+			.then(() =>{})
+			.catch(() =>{
+				this.toast.create({message: 'Erro ao salvar o animal', duration: 3000, position: 'bottom'}).present();
+			});
+			this.navCtrl.push(DonateSuccessPage);
+		}
 	};
 
 
 	private saveAnimal(){
 		return this.animalProvider.insertAnimal(this.modelAnimal);
 	}
+
+  validateFields(){
+    if(
+      this.ruleValidateFields(this.modelAnimal.nomeDoador,null,3) &&
+      this.ruleValidateFields(this.modelAnimal.cidadeDoador,null,0) &&
+      this.ruleValidateFields(this.modelAnimal.telefoneDoador,null,3) &&
+      this.ruleValidateFields(this.modelAnimal.emailDoador,null,1)){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  ruleValidateFields(field,type,minChar){
+    if(field != '' && field != undefined && field.length >= minChar){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

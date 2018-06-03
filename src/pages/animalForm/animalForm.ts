@@ -118,7 +118,9 @@ homePage = HomePage;
 
 
   save(){
-    // if (this.validateFields()){
+    this.model.img = this.pathForImage(this.lastImage);
+    this.validateFields();
+    if (this.validateFields()){
       this.navCtrl.push(UserFormPage, {
         nome: this.model.nome,
         tipo: this.model.tipo,
@@ -133,21 +135,28 @@ homePage = HomePage;
         info: this.model.info,
         img: this.pathForImage(this.lastImage)
       });
-    // }
+    }
   }
 
   validateFields(){
-    this.ruleValidateFields(this.model.nome,null,3);
-    this.ruleValidateFields(this.model.tipo,null,1);
-    this.ruleValidateFields(this.model.sexo,null,1);
-    this.ruleValidateFields(this.model.anos,null,1);
-    this.ruleValidateFields(this.model.meses,null,1);
-    this.ruleValidateFields(this.model.porte,null,1);
-    this.ruleValidateFields(this.model.temperamento,null,1);
-    this.ruleValidateFields(this.model.raca,null,3);
-    this.ruleValidateFields(this.model.vacinado,null,1);
-    this.ruleValidateFields(this.model.castrado,null,1);
-    // this.ruleValidateFields(this.model.img,null,0);
+    if(
+      this.ruleValidateFields(this.model.nome,null,3) &&
+      this.ruleValidateFields(this.model.tipo,null,1) &&
+      this.ruleValidateFields(this.model.nome,null,3) &&
+      this.ruleValidateFields(this.model.tipo,null,1) &&
+      this.ruleValidateFields(this.model.sexo,null,1) &&
+      this.ruleValidateFields(this.model.anos,null,1) &&
+      this.ruleValidateFields(this.model.meses,null,1) &&
+      this.ruleValidateFields(this.model.porte,null,1) &&
+      this.ruleValidateFields(this.model.temperamento,null,1) &&
+      this.ruleValidateFields(this.model.raca,null,3) &&
+      this.ruleValidateFields(this.model.vacinado,null,1) &&
+      this.ruleValidateFields(this.model.castrado,null,1) &&
+      this.ruleValidateFields(this.model.img,null,0)){
+      return true;
+    } else {
+      return false;
+    }
   }
 
   ruleValidateFields(field,type,minChar){

@@ -39,7 +39,7 @@ export class DatabaseProvider {
         .then((data: any) =>{
           if (data.rows.item(0).qtd == 0){
             db.sqlBatch([
-              ['INSERT INTO animal (login, senha) VALUES (?, ?)', ['admin', 'admin']]
+              ['INSERT INTO usuario (login, senha) VALUES (?, ?)', ['admin', 'admin']]
             ])
             .then(() => console.log('Dados padrões incluídos'))
             .catch(e => console.error('Erro ao incluir dados padrões', e));

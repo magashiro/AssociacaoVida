@@ -42,6 +42,7 @@ export class QuestionPage {
 	}
 
 	save(){
+		if(this.validateFields()){
 		this.insertAdotante()
 	    .then(() =>{})
 	    .catch(() =>{
@@ -52,7 +53,34 @@ export class QuestionPage {
 	    .catch(() =>{
 	    	this.toast.create({message: 'Erro ao linkar o adotante', duration: 3000, position: 'bottom'}).present();
     	});
+    	this.navCtrl.push(AdoptSuccessPage);
+		}
+
 	}
+
+  validateFields(){
+    if(
+      this.ruleValidateFields(this.modelAdotante.q1,null,0) &&
+      this.ruleValidateFields(this.modelAdotante.q2,null,0) &&
+      this.ruleValidateFields(this.modelAdotante.q3,null,0) &&
+      this.ruleValidateFields(this.modelAdotante.q4,null,0) &&
+      this.ruleValidateFields(this.modelAdotante.q5,null,0) &&
+      this.ruleValidateFields(this.modelAdotante.q6,null,0) &&
+      this.ruleValidateFields(this.modelAdotante.q7,null,0) &&
+      this.ruleValidateFields(this.modelAdotante.q8,null,0)){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  ruleValidateFields(field,type,minChar){
+    if(field != '' && field != undefined && field.length >= minChar){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
 
 
