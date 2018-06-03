@@ -1,18 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { SQLiteObject } from '@ionic-native/sqlite';
+import { DatabaseProvider } from '../database/database';
 
-/*
-  Generated class for the AdminProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class AdminProvider {
 
-  constructor(public http: Http) {
-    console.log('Hello AdminProvider Provider');
+  constructor((private dbProvider: DatabaseProvider) {
   }
 
+  public checkUser(login: string, senha: string){
+      return this.dbProvider.getDB()
+      .then((db: SQLiteObject) =>{
+  		let sql = 'SELECT * from usuario where login = ? and senha = ?';
+    	let data = [login, senha];
+  		return db.executeSql(sql, data)
+  		.catch((e) => console.error(e));
+  		})
+  		.catch((e) => console.error(e));
+  	}
+}
+
+export class Admin {
+	id: number;
+	login: string;
+	senha: string;
 }
