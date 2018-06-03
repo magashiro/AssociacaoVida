@@ -29,6 +29,7 @@ import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { LoginPage } from '../pages/login/login'
+import { AdminProvider } from '../providers/admin/admin';
 @NgModule({
   declarations: [
     MyApp,
@@ -83,7 +84,8 @@ import { LoginPage } from '../pages/login/login'
     File,
     Transfer,
     Camera,
-    FilePath
+    FilePath,
+    AdminProvider
   ]
 })
 
