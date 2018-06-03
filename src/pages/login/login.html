@@ -1,0 +1,30 @@
+<ion-header id = "cab">
+	<ion-navbar>
+		<ion-title id ="titulo">
+			Login
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content scrollbar-y-auto>
+
+		<ion-item no-lines>
+			<ion-label>Email:</ion-label>
+			<ion-input name="email" type="text"maxlength="50"></ion-input>
+		</ion-item>
+
+		<ion-item no-lines>
+			<ion-label>Senha:</ion-label>
+			<ion-input name="senha" type="text" maxlength="30"></ion-input>
+		</ion-item>
+
+	<div class="row row-bottom">
+		<div class="col .col-50">
+			<button (click)="goback()" ion-button large id = "btn">Voltar</button>
+		</div>
+		<div class="col .col-50">
+			<button ion-button large (click)="login()" id="btn">Logar</button>
+		</div>
+	</div>
+
+	</ion-content>

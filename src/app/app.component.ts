@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { DatabaseProvider } from '../providers/database/database';
 import { Keyboard } from '@ionic-native/keyboard';
-
+import { LoginPage } from '../pages/login/login';
 @Component({
   templateUrl: 'app.html',
   providers: [Keyboard]

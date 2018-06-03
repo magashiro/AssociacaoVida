@@ -28,6 +28,7 @@ import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
+import { LoginPage } from '../pages/login/login'
 @NgModule({
   declarations: [
     MyApp,
@@ -43,7 +44,8 @@ import { Camera } from '@ionic-native/camera';
     PesquisaAnimal,
     AdoptFormPage,
     QuestionPage,
-    DonateSuccessPage
+    DonateSuccessPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,8 @@ import { Camera } from '@ionic-native/camera';
     PesquisaAnimal,
     AdoptFormPage,
     QuestionPage,
-    DonateSuccessPage
+    DonateSuccessPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
