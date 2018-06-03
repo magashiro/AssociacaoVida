@@ -12,16 +12,10 @@ export class LoginPage {
   goback() {
 	   this.navCtrl.pop();
 	}
-
-  private credential: Credential ={
-    email:'',
-    password:''
-  };
-
   constructor(public navCtrl: NavController, public navParams: NavParams){
 
   }
   login () {
-    console.log('Logging...')
+    console.log('Loggin...')
   }
-  };
+}
