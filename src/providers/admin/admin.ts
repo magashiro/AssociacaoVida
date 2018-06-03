@@ -6,7 +6,7 @@ import { DatabaseProvider } from '../database/database';
 @Injectable()
 export class AdminProvider {
 
-  constructor((private dbProvider: DatabaseProvider) {
+  constructor(private dbProvider: DatabaseProvider) {
   }
 
   public checkUser(login: string, senha: string){
