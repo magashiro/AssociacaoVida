@@ -60,14 +60,14 @@ export class QuestionPage {
 
   validateFields(){
     if(
-      this.ruleValidateFields(this.modelAdotante.q1,null,0) &&
-      this.ruleValidateFields(this.modelAdotante.q2,null,0) &&
-      this.ruleValidateFields(this.modelAdotante.q3,null,0) &&
-      this.ruleValidateFields(this.modelAdotante.q4,null,0) &&
-      this.ruleValidateFields(this.modelAdotante.q5,null,0) &&
-      this.ruleValidateFields(this.modelAdotante.q6,null,0) &&
-      this.ruleValidateFields(this.modelAdotante.q7,null,0) &&
-      this.ruleValidateFields(this.modelAdotante.q8,null,0)){
+      this.ruleValidateFields(this.modelAdotante.Q1,null,0) &&
+      this.ruleValidateFields(this.modelAdotante.Q2,null,0) &&
+      this.ruleValidateFields(this.modelAdotante.Q3,null,0) &&
+      this.ruleValidateFields(this.modelAdotante.Q4,null,0) &&
+      this.ruleValidateFields(this.modelAdotante.Q5,null,0) &&
+      this.ruleValidateFields(this.modelAdotante.Q6,null,0) &&
+      this.ruleValidateFields(this.modelAdotante.Q7,null,0) &&
+      this.ruleValidateFields(this.modelAdotante.Q8,null,0)){
       return true;
     } else {
       return false;
