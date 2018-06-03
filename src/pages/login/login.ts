@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { ContactPage } from '../contact/contact';
-import { AdminProvider, Admin } from '../../admin/admin';
+import { AdminProvider, Admin } from '../../providers/admin/admin';
 
 @Component({
   selector: 'page-login' ,
@@ -29,15 +29,26 @@ export class LoginPage {
   }
 
   private login () {
-    return this.adminProvider.checkUser(this.model.login, this.model,senha);
+    return this.adminProvider.checkUser(this.model.login, this.model.senha);
   }
 
   private authenticate(){
-    if (this.login() != '' && this.login() != undefined){
-      this.navCtrl.push();
-    } else {
-      this.presentToast('O usuário e senha não conferem!');
-    }
+    this.login()
+    .then((result: Admin) => {
+      if (this.model.senha==result.senha && this.model.senha != ''){
+        this.navCtrl.push(LoginPage);
+      } else {
+        this.presentToast('O usuário e senha não conferem!');
+      }
+    })
+    .catch(() =>{
+      this.presentToast('Usuário não encontrado!');
+    })
   }
 
   };
+    // if (this.login() != '' && this.login() != undefined){
+    //   this.navCtrl.push();
+    // } else {
+    //   this.presentToast('O usuário e senha não conferem!');
+    // }
