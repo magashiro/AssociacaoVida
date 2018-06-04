@@ -28,7 +28,7 @@ export class DatabaseProvider {
         db.sqlBatch([
           ['CREATE TABLE IF NOT EXISTS usuario (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, login TEXT, senha TEXT)'],
           ['CREATE TABLE IF NOT EXISTS animal (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, status TEXT, tipo TEXT, nome TEXT, sexo TEXT, anos INTEGER, meses INTEGER, porte TEXT, temperamento TEXT, raca TEXT, vacinado TEXT, castrado TEXT, info TEXT, img TEXT, nomeDoador TEXT, cidadeDoador TEXT, telefoneDoador INTEGER, emailDoador TEXT, id_adotante TEXT, FOREIGN KEY (id_adotante) REFERENCES adotante (cpf))'],          
-          ['CREATE TABLE IF NOT EXISTS adotante (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nome TEXT, endereco TEXT, bairro TEXT, cidade TEXT, telefone INTEGER, email TEXT, rg TEXT, cpf TEXT, Q1 TEXT, Q2 TEXT, Q3 TEXT, Q4 TEXT, Q5 TEXT, Q6 TEXT, Q7 TEXT, Q8 TEXT)']
+          ['CREATE TABLE IF NOT EXISTS adotante (cpf STRING PRIMARY KEY NOT NULL, nome TEXT, endereco TEXT, bairro TEXT, cidade TEXT, telefone INTEGER, email TEXT, rg TEXT, Q1 TEXT, Q2 TEXT, Q3 TEXT, Q4 TEXT, Q5 TEXT, Q6 TEXT, Q7 TEXT, Q8 TEXT)']
         ])
         .then(() => console.log('Tabelas Criadas'))
         .catch(e => console.error('Erro ao criar as tabelas', e));

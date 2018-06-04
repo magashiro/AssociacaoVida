@@ -198,5 +198,5 @@ export class Animal{
   emailDoador: string;
   cidadeDoador: string;
   telefoneDoador: number;
-	id_adotante: number;
+	id_adotante: string;
 }

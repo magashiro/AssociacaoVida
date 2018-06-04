@@ -6,28 +6,78 @@
 	</ion-navbar>
 </ion-header>
 <ion-content padding>
-	<ion-item>
-		<ion-card>
-			<ion-card-header>
-				<img src="{{model.img}}">
-			</ion-card-header>
-			<ion-card-content>
-				{{ model.tipo }}, {{ model.nome }}, {{ model.sexo }}, {{ model.anos }}, Porte {{ model.porte }},<br> {{ model.temperamento }}, {{ model.raca }}, {{ model.vacinado }} e {{ model.castrado }}. <br><br>{{ model.info }}
-			</ion-card-content>
-		</ion-card>
-	</ion-item>
+	<ion-card>
+		<ion-card-header>
+			<img src="{{modelAnimal.img}}">
+		</ion-card-header>
+		<ion-card-content>
+			<ion-item no-lines>
+				Dados do Animal:
+				<br>
+			{{ modelAnimal.tipo }}, {{ modelAnimal.nome }}, {{ modelAnimal.sexo }},<br>{{ modelAnimal.anos }} anos, Porte {{ modelAnimal.porte }},<br> {{ modelAnimal.temperamento }}, {{ modelAnimal.raca }},<br>{{ modelAnimal.vacinado }} e {{ modelAnimal.castrado }}. <br><br>{{ modelAnimal.info }}<br> {{ modelAnimal.id_adotante }}
+			</ion-item>
+			<ion-item no-lines>
+				<br>
+				Dados do Doador
+				<br>
+				Nome: {{ modelAnimal.nomeDoador }}
+				<br>
+				Cidade: {{ modelAnimal.cidadeDoador }}
+				<br>
+				Tel: {{ modelAnimal.telefoneDoador }}
+				<br>
+				E-mail: {{ modelAnimal.emailDoador }}
+			</ion-item>
+			<ion-item no-lines>
+				<br>
+				Dados do Adotante
+				<br>
+				Nome: {{ modelAdotante.nome }}
+				<br>
+				Cidade: {{ modelAdotante.cidade }}
+				<br>
+				Endereço: {{ modelAdotante.endereco }}
+				<br>
+				Bairro: {{ modelAdotante.bairro }}
+				<br>
+				Tel: {{ modelAdotante.telefone }}
+				<br>
+				E-mail: {{ modelAdotante.email }}
+				<br>
+				RG: {{ modelAdotante.rg }}
+				<br>
+				CPF: {{ modelAdotante.cpf }}
+				<br>
+				{{ modelAdotante.Q1 }}
+				<br>
+				{{ modelAdotante.Q2 }}
+				<br>
+				{{ modelAdotante.Q3 }}
+				<br>
+				{{ modelAdotante.Q4 }}
+				<br>
+				{{ modelAdotante.Q5 }}
+				<br>
+				{{ modelAdotante.Q6 }}
+				<br>
+				{{ modelAdotante.Q7 }}
+				<br>
+				{{ modelAdotante.Q8 }}
+			</ion-item>
+		</ion-card-content>
+	</ion-card>
 
-  <ion-footer>
+  <ion-footer position="static">
     <ion-grid>
       <div class="row row-bottom">
         <div class="col .col-33">
-          <button (click)="goback()" ion-button large id = "btn">Voltar</button>
+          <button (click)="goback()" ion-button medium id = "btn">Voltar</button>
         </div>
         <div class="col .col-33">
-          <button ion-button large id = "btn" (click)="accept()">Aceitar</button>
+          <button ion-button medium id = "btn" (click)="accept()">Aceitar</button>
         </div>
         <div class="col .col-33">
-          <button ion-button large id = "btn" (click)="reject()">Rejeitar</button>
+          <button ion-button medium id = "btn" (click)="reject()">Rejeitar</button>
         </div>
       </div>
     </ion-grid>

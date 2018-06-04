@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { AnimalProvider } from '../../providers/animal/animal';
+import { AnimalProvider, Animal } from '../../providers/animal/animal';
 import { LoginPage } from '../login/login';
 import { AdminViewPendingAnimalPage } from '../adminViewPendingAnimal/adminViewPendingAnimal';
+import { AdotanteProvider, Adotante } from '../../providers/adotante/adotante';
 
 
 @Component({
@@ -10,11 +11,14 @@ import { AdminViewPendingAnimalPage } from '../adminViewPendingAnimal/adminViewP
   templateUrl: 'adminView.html',
 })
 export class AdminViewPage {
-
+  modelAdotante: Adotante;
+  modelAnimal: Animal;
   animals: any[] = [];
   searchText: string = null;
 
   constructor(public navCtrl: NavController, private animalProvider: AnimalProvider) {
+    this.modelAnimal = new Animal();
+    this.modelAdotante = new Adotante();
   }
 
   ionViewDidLoad() {
@@ -34,7 +38,7 @@ export class AdminViewPage {
 
   showAnimal(id: number){
   	this.navCtrl.push(AdminViewPendingAnimalPage, { 
-      id: id
+      id: id,
     });
   }
 
