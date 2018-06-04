@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { HomePage } from '../home/home';
-import { PesquisaAnimal } from '../pesquisaAnimal/pesquisaAnimal'
 import { AnimalProvider } from '../../providers/animal/animal';
 
 
@@ -16,7 +15,6 @@ export class AnimalList {
 
 
   homePage = HomePage;
-  pesquisaAnimal = PesquisaAnimal;
 
   constructor(public navCtrl: NavController, private toast: ToastController, private animalProvider: AnimalProvider) {
   }

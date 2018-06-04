@@ -88,7 +88,7 @@ export class AnimalProvider {
     public getPending(nome: string = null){
       return this.dbProvider.getDB()
       .then((db: SQLiteObject) =>{
-        let sql = 'select * from animal where status = "New"';
+        let sql = 'select * from animal where status = "Pending"';
         var data: any[] = [];
         if (nome){
           sql += ' and nome like ?';

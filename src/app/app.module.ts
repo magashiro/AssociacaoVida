@@ -11,7 +11,6 @@ import { UserFormPage } from '../pages/userForm/userForm';
 import { ConfirmAdoptPage } from '../pages/confirmAdopt/confirmAdopt';
 import { AdoptSuccessPage } from '../pages/adoptSuccess/adoptSuccess';
 import { AnimalList } from '../pages/animalList/animalList';
-import { PesquisaAnimal} from '../pages/pesquisaAnimal/pesquisaAnimal';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DatabaseProvider } from '../providers/database/database';
@@ -30,6 +29,8 @@ import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { LoginPage } from '../pages/login/login'
 import { AdminProvider } from '../providers/admin/admin';
+import { AdminViewPage } from '../pages/adminView/adminView';
+import { AdminViewPendingAnimalPage } from '../pages/adminViewPendingAnimal/adminViewPendingAnimal';
 @NgModule({
   declarations: [
     MyApp,
@@ -42,11 +43,12 @@ import { AdminProvider } from '../providers/admin/admin';
     ConfirmAdoptPage,
     AdoptSuccessPage,
     AnimalList,
-    PesquisaAnimal,
     AdoptFormPage,
     QuestionPage,
     DonateSuccessPage,
-    LoginPage
+    LoginPage,
+    AdminViewPage,
+    AdminViewPendingAnimalPage
   ],
   imports: [
     BrowserModule,
@@ -66,11 +68,12 @@ import { AdminProvider } from '../providers/admin/admin';
     ConfirmAdoptPage,
     AdoptSuccessPage,
     AnimalList,
-    PesquisaAnimal,
     AdoptFormPage,
     QuestionPage,
     DonateSuccessPage,
-    LoginPage
+    LoginPage,
+    AdminViewPage,
+    AdminViewPendingAnimalPage
   ],
   providers: [
     StatusBar,
