@@ -7,7 +7,7 @@ import { DatabaseProvider } from '../database/database';
 export class AnimalProvider {
 
   constructor(private dbProvider: DatabaseProvider) {
-    
+
   }
 
     public insertAnimal(animal: Animal){

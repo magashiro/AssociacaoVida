@@ -4,9 +4,16 @@ page-animalShow{
     text-align: center;
     }
   #btn {
+    position: absolute;
     border-radius: 7px;
     width: 100%;
+    bottom: 0;
+    margin-top: 100px;
     }
+  #corpo {
+    position: relative;
+    margin-bottom: 50px;
+  }
 
   .wrapper {
   text-align: center;
@@ -19,11 +26,11 @@ page-animalShow{
    font-style: italic;
 }
 :-moz-placeholder {
-   font-style: italic;  
+   font-style: italic;
 }
 ::-moz-placeholder {
-   font-style: italic;  
+   font-style: italic;
 }
-:-ms-input-placeholder {  
-   font-style: italic; 
+:-ms-input-placeholder {
+   font-style: italic;
 }
