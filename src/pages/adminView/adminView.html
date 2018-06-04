@@ -1,0 +1,32 @@
+*essa pagina deve exibir os animais cadastrados e possuir o botão pesquisa avançada para ir para tela de pesquisa*
+<ion-header id = "cab">
+  <ion-navbar>
+    <ion-title id ="titulo">
+      Lista de animais
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id ="corpo">
+ <ion-searchbar (ionInput)="filterAnimals($event)" [(ngModel)]="searchText" placeholder="Procurar por nome"></ion-searchbar>
+ <ion-list>
+  <ion-grid>
+    <ion-row wrap>
+      <ion-col col-6 *ngFor="let animal of animals">
+        <ion-item>
+         <button ion-item (click)="showAnimal(animal.id)">
+          <img src="{{animal.img}}">
+          <h2>{{ animal.nome }}</h2>
+          <h2>{{ animal.tipo }}</h2>
+          <h2>Idade: {{ animal.anos }}</h2>
+        </button>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-list>
+
+
+<p>Total de animais cadastrados: {{ animals.length }}</p>
+
+
+</ion-content>

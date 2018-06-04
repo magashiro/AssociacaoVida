@@ -1,0 +1,35 @@
+<ion-header id = "cab">
+	<ion-navbar>
+		<ion-title id ="titulo">
+			Perfil do Animal
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+	<ion-item>
+		<ion-card>
+			<ion-card-header>
+				<img src="{{model.img}}">
+			</ion-card-header>
+			<ion-card-content>
+				{{ model.tipo }}, {{ model.nome }}, {{ model.sexo }}, {{ model.anos }}, Porte {{ model.porte }},<br> {{ model.temperamento }}, {{ model.raca }}, {{ model.vacinado }} e {{ model.castrado }}. <br><br>{{ model.info }}
+			</ion-card-content>
+		</ion-card>
+	</ion-item>
+
+  <ion-footer>
+    <ion-grid>
+      <div class="row row-bottom">
+        <div class="col .col-33">
+          <button (click)="goback()" ion-button large id = "btn">Voltar</button>
+        </div>
+        <div class="col .col-33">
+          <button ion-button large id = "btn" (click)="accept()">Aceitar</button>
+        </div>
+        <div class="col .col-33">
+          <button ion-button large id = "btn" (click)="reject()">Rejeitar</button>
+        </div>
+      </div>
+    </ion-grid>
+  </ion-footer>
+</ion-content>
