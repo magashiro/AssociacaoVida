@@ -19,7 +19,7 @@ export class QuestionPage {
 	   this.navCtrl.pop();
 	}
 
-	constructor(public navCtrl: NavController, private toast: ToastController, public navParams: NavParams, private adotanteProvider: AdotanteProvider, private animalProvider: AnimalProvider) {
+	constructor(public navCtrl: NavController, private toastController: ToastController, public navParams: NavParams, private adotanteProvider: AdotanteProvider, private animalProvider: AnimalProvider) {
 		this.modelAnimal = new Animal();
 		this.modelAdotante = new Adotante();
 	  	this.modelAdotante.nome = navParams.get('nome');
@@ -41,19 +41,30 @@ export class QuestionPage {
 		return this.animalProvider.updateIdAdotante(this.modelAdotante.cpf, this.modelAnimal.id);
 	}
 
+  private presentToast(text) {
+    let toast = this.toastController.create({
+      message: text,
+      duration: 3000,
+      position: 'top'
+    });
+    toast.present();
+  }
+
 	save(){
 		if(this.validateFields()){
 		this.insertAdotante()
 	    .then(() =>{})
 	    .catch(() =>{
-	    	this.toast.create({message: 'Erro ao atualizar as perguntas', duration: 3000, position: 'bottom'}).present();
+	    	
     	});
     	this.updateIdAdotante()
 	    .then(() =>{})
 	    .catch(() =>{
-	    	this.toast.create({message: 'Erro ao linkar o adotante', duration: 3000, position: 'bottom'}).present();
+	    	this.presentToast ('Erro ao linkar o adotante');
     	});
     	this.navCtrl.push(AdoptSuccessPage);
+		} else {
+			this.presentToast('Responda todas as perguntas!');
 		}
 
 	}

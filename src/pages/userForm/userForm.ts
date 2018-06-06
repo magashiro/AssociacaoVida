@@ -16,7 +16,7 @@ export class UserFormPage {
 	}
 	donateSuccessPage = DonateSuccessPage;
 	animalFormPage = AnimalFormPage;
-	  constructor(public navCtrl: NavController, private animalProvider: AnimalProvider, public navParams: NavParams, private toast: ToastController) {
+	  constructor(public navCtrl: NavController, private animalProvider: AnimalProvider, public navParams: NavParams, private toastController: ToastController) {
 	  	this.modelAnimal = new Animal();
 	  	this.modelAnimal.nome = navParams.get('nome');
 	  	this.modelAnimal.tipo = navParams.get('tipo');
@@ -32,14 +32,25 @@ export class UserFormPage {
 	  	this.modelAnimal.img = navParams.get('img');
 	  }
 
+  private presentToast(text) {
+    let toast = this.toastController.create({
+      message: text,
+      duration: 3000,
+      position: 'top'
+    });
+    toast.present();
+  }
+
 	save(){
 		if(this.validateFields()){
 			this.saveAnimal()
 			.then(() =>{})
 			.catch(() =>{
-				this.toast.create({message: 'Erro ao salvar o animal', duration: 3000, position: 'bottom'}).present();
+				
 			});
 			this.navCtrl.push(DonateSuccessPage);
+		} else {
+			this.presentToast('Favor preencher todos os campos!');
 		}
 	};
 

@@ -23,11 +23,12 @@ export class AdminViewPendingAnimalPage {
 		.then((result: any) =>{
 			this.modelAnimal = result;
 			this.modelAnimal.id_adotante = result.id_adotante;
-		});
-		this.adotanteProvider.getAdotante(this.modelAnimal.id_adotante)
+			this.adotanteProvider.getAdotante(this.modelAnimal.id_adotante)
 		.then((res: any) =>{
 			this.modelAdotante = res;
 		});
+	});
+		
 	}
 	// if (this.navParams.data.id_adotante){
 	// 	this.adotanteProvider.getAdotante(this.navParams.data.id_adotante)

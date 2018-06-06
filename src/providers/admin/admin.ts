@@ -9,29 +9,33 @@ export class AdminProvider {
   constructor(private dbProvider: DatabaseProvider) {
   }
 
-  public checkUser(login: string, senha: string){
-      return this.dbProvider.getDB()
-      .then((db: SQLiteObject) =>{
-        let sql = 'select * from usuario where login = ? and senha = ?';
-        let data = [login, senha];
+  public authenticate(login: string, senha: string): Promise<Admin> {
+    return new Promise((resolve, reject) => {
+        this.dbProvider.getDB().then((db: SQLiteObject) => {
+          const sql = 'select * from usuario where login = ? and senha = ?';
+          const data = [login, senha];
+          return db.executeSql(sql, data)
+          .then((data: any) =>{
+            if (data.rows.length > 0) {
+              const item = data.rows.item(0);
+              const admin = new Admin();
 
-        return db.executeSql(sql, data)
-        .then((data: any) =>{
-          if (data.rows.length > 0){
-          let item = data.rows.item(0);
-          let admin = new Admin();
-          admin.id = item.id;
-          admin.login = item.login;
-          admin.senha = item.senha;
-          return admin;
-        }
-      return null;
-      })
-    .catch((e) => console.error(e));
-    })
-    .catch((e) => console.error(e));
-  	}
+              admin.id = item.id;
+              admin.login = item.login;
+              admin.senha = item.senha;
+
+              resolve(admin);
+            } else {
+              reject();
+            }
+        }).catch(e => reject(e));
+      }).catch(e => reject(e));
+    
+
+    });
+  }
 }
+    
 
 export class Admin {
 	id: number;
