@@ -17,14 +17,18 @@
 			<ion-label>Senha:</ion-label>
 			<ion-input name="senha" type="password" maxlength="30" [(ngModel)]="model.senha" ></ion-input>
 		</ion-item>
+</ion-content>
 
-	<div class="row row-bottom">
-		<div class="col .col-50">
-			<button (click)="goback()" ion-button large id = "btn">Voltar</button>
+<ion-footer>
+	<ion-grid>
+		<div class="row row-bottom">
+			<div class="col .col-50">
+				<button (click)="goback()" ion-button large id = "btn">Voltar</button>
+			</div>
+			<div class="col .col-50">
+				<button ion-button large (click)="login()" id="btn">Logar</button>
+			</div>
 		</div>
-		<div class="col .col-50">
-			<button ion-button large (click)="login()" id="btn">Logar</button>
-		</div>
-	</div>
-
-	</ion-content>
+	</ion-grid>
+</ion-footer>
+	

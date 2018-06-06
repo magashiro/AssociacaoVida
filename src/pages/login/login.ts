@@ -32,6 +32,6 @@ export class LoginPage {
   private login () {
     this.adminProvider.authenticate(this.model.login, this.model.senha).then(admin => {
       this.navCtrl.push(AdminViewPage);  
-    }).catch(e => console.error(e));
+    }).catch(e => this.presentToast('Usuário e senha não conferem!'));
   }
 }

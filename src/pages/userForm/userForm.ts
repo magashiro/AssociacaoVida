@@ -67,6 +67,7 @@ export class UserFormPage {
       this.ruleValidateFields(this.modelAnimal.emailDoador,null,1)){
       return true;
     } else {
+    	this.presentToast('Preencha todos os campos!');
       return false;
     }
   }

@@ -81,6 +81,7 @@ export class QuestionPage {
       this.ruleValidateFields(this.modelAdotante.Q8,null,0)){
       return true;
     } else {
+    	this.presentToast('Responda as perguntas!');
       return false;
     }
   }

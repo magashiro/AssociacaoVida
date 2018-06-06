@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { QuestionPage } from '../question/question';
 import { AdotanteProvider, Adotante } from '../../providers/adotante/adotante';
 import { AnimalProvider, Animal } from '../../providers/animal/animal';
@@ -16,7 +16,7 @@ export class AdoptFormPage {
 	   this.navCtrl.pop();
 	}
 	
-  constructor(public navCtrl: NavController, public navParams: NavParams, private adotanteProvider: AdotanteProvider, private animalProvider: AnimalProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private adotanteProvider: AdotanteProvider, private animalProvider: AnimalProvider, private toastController: ToastController) {
   	this.modelAdotante = new Adotante();
     this.modelAnimal = new Animal();
     this.modelAnimal.id = navParams.get('id');
@@ -38,6 +38,15 @@ export class AdoptFormPage {
     }
   }
 
+  private presentToast(text) {
+    let toast = this.toastController.create({
+      message: text,
+      duration: 3000,
+      position: 'top'
+    });
+    toast.present();
+  }
+
   validateFields(){
     if(
       this.ruleValidateFields(this.modelAdotante.nome,null,3) &&
@@ -50,6 +59,7 @@ export class AdoptFormPage {
       this.ruleValidateFields(this.modelAdotante.cpf,null,11)){
       return true;
     } else {
+      this.presentToast('Preencha todos os campos!');
       return false;
     }
   }

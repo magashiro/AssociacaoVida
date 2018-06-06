@@ -118,6 +118,9 @@ homePage = HomePage;
 
 
   save(){
+    if (this.model.info == '' || this.model.info == null || this.model.info == undefined){
+      this.model.info = 'Sem informação adicional';
+    }
     this.model.img = this.pathForImage(this.lastImage);
     this.validateFields();
     if (this.validateFields()){
@@ -155,6 +158,7 @@ homePage = HomePage;
       this.ruleValidateFields(this.model.img,null,0)){
       return true;
     } else {
+      this.presentToast('Preencha todos os campos!');
       return false;
     }
   }
