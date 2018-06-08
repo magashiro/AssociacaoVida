@@ -3,7 +3,6 @@ import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { ContactPage } from '../contact/contact';
 import { AdminProvider, Admin } from '../../providers/admin/admin';
 import { AdminViewPage } from '../adminView/adminView';
-
 @Component({
   selector: 'page-login' ,
   templateUrl: 'login.html' ,
@@ -31,7 +30,7 @@ export class LoginPage {
 
   private login () {
     this.adminProvider.authenticate(this.model.login, this.model.senha).then(admin => {
-      this.navCtrl.push(AdminViewPage);  
+      this.navCtrl.push(AdminViewPage);
     }).catch(e => this.presentToast('Usuário e senha não conferem!'));
   }
 }

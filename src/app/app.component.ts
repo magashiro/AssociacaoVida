@@ -10,6 +10,7 @@ import { LoginPage } from '../pages/login/login';
   templateUrl: 'app.html',
   providers: [Keyboard]
 })
+
 export class MyApp {
   rootPage:any = null;
 
