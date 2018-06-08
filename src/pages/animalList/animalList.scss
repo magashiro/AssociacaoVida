@@ -1,3 +1,26 @@
 page-animalList{
-
+	.col-50, .col-33 {
+	  display: -webkit-box;
+	  display: -webkit-flex;
+	  display: -ms-flexbox;
+	  display: flex;
+	}
+	.card {
+	  width:100%;
+	  display: -webkit-box;
+	  display: -webkit-flex;
+	  display: -ms-flexbox;
+	  display: flex;
+	  -webkit-box-orient: vertical;
+	  -webkit-box-direction: normal;
+	  -webkit-flex-direction: column;
+	      -ms-flex-direction: column;
+	          flex-direction: column;
+	}
+	.item-body {
+	  -webkit-box-flex: 1;
+	  -webkit-flex: 1 1 auto;
+	      -ms-flex: 1 1 auto;
+	          flex: 1 1 auto;
+	}
 }

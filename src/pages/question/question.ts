@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, ToastController, NavParams } from 'ionic-angular';
 import { AdoptFormPage } from '../adoptForm/adoptForm';
 import { AdoptSuccessPage } from '../adoptSuccess/adoptSuccess';
-import { DatabaseProvider } from './../../providers/database/database';
 import { AdotanteProvider, Adotante } from '../../providers/adotante/adotante';
 import { AnimalProvider, Animal } from '../../providers/animal/animal';
 
@@ -81,7 +80,6 @@ export class QuestionPage {
       this.ruleValidateFields(this.modelAdotante.Q8,null,0)){
       return true;
     } else {
-    	this.presentToast('Responda as perguntas!');
       return false;
     }
   }

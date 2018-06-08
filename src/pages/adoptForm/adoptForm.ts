@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { QuestionPage } from '../question/question';
-import { AdotanteProvider, Adotante } from '../../providers/adotante/adotante';
-import { AnimalProvider, Animal } from '../../providers/animal/animal';
+import { Adotante } from '../../providers/adotante/adotante';
+import { Animal } from '../../providers/animal/animal';
 
 @Component({
   selector: 'page-adoptForm',
@@ -16,7 +16,7 @@ export class AdoptFormPage {
 	   this.navCtrl.pop();
 	}
 	
-  constructor(public navCtrl: NavController, public navParams: NavParams, private adotanteProvider: AdotanteProvider, private animalProvider: AnimalProvider, private toastController: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private toastController: ToastController) {
   	this.modelAdotante = new Adotante();
     this.modelAnimal = new Animal();
     this.modelAnimal.id = navParams.get('id');

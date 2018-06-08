@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { AnimalProvider, Animal } from '../../providers/animal/animal';
-import { AdoptFormPage } from '../adoptForm/adoptForm';
 import { AdotanteProvider, Adotante } from '../../providers/adotante/adotante';
 
 
@@ -30,12 +29,6 @@ export class AdminViewPendingAnimalPage {
 	});
 		
 	}
-	// if (this.navParams.data.id_adotante){
-	// 	this.adotanteProvider.getAdotante(this.navParams.data.id_adotante)
-	// 	.then((res: any) =>{
-	// 		this.modelAdotante = res;
-	// 	});
-	// }
   }
 
   private presentToast(text) {
@@ -46,13 +39,6 @@ export class AdminViewPendingAnimalPage {
     });
     toast.present();
   }
-
-  	private getAdopter(){
-  		this.adotanteProvider.getAdotante(this.modelAnimal.id_adotante)
-  		.then((result: any) =>{
-  			this.modelAdotante = result;
-  		});
-  	}
 
 	goback() {
 		this.navCtrl.pop();

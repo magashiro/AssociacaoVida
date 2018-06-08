@@ -58,6 +58,66 @@ export class AnimalProvider {
   		.catch((e) => console.error(e));
   	}
 
+    public getBySex(sexo: string = null){
+      return this.dbProvider.getDB()
+      .then((db: SQLiteObject) =>{
+        let sql = 'select * from animal where status = "New"';
+        var data: any[] = [];
+        if (sexo == null || sexo == '' || sexo == 'todos'){
+        } else {
+          if (sexo) {
+            sql += ' and sexo = ?';
+            data.push(sexo);
+          }
+        }
+        return db.executeSql(sql, data)
+        .then((data: any) =>{
+          if (data.rows.length > 0){
+            let animals: any[] = [];
+            for (var i = 0; i < data.rows.length; i++){
+              var animal = data.rows.item(i);
+              animals.push(animal);
+            }
+          return animals;
+          } else{
+            return [];
+          }
+        })
+        .catch((e) => console.error(e));
+        })
+      .catch((e) => console.error(e));
+    }
+
+    public getPendingBySex(sexo: string = null){
+      return this.dbProvider.getDB()
+      .then((db: SQLiteObject) =>{
+        let sql = 'select * from animal where status = "Pending"';
+        var data: any[] = [];
+        if (sexo == null || sexo == '' || sexo == 'todos'){
+        } else {
+          if (sexo) {
+            sql += ' and sexo = ?';
+            data.push(sexo);
+          }
+        }
+        return db.executeSql(sql, data)
+        .then((data: any) =>{
+          if (data.rows.length > 0){
+            let animals: any[] = [];
+            for (var i = 0; i < data.rows.length; i++){
+              var animal = data.rows.item(i);
+              animals.push(animal);
+            }
+          return animals;
+          } else{
+            return [];
+          }
+        })
+        .catch((e) => console.error(e));
+        })
+      .catch((e) => console.error(e));
+    }
+
     public getNew(nome: string = null){
       return this.dbProvider.getDB()
       .then((db: SQLiteObject) =>{

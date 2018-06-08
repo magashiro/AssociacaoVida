@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { AnimalProvider, Animal } from '../../providers/animal/animal';
-import { LoginPage } from '../login/login';
 import { AdminViewPendingAnimalPage } from '../adminViewPendingAnimal/adminViewPendingAnimal';
 import { AdotanteProvider, Adotante } from '../../providers/adotante/adotante';
 
@@ -30,7 +29,7 @@ export class AdminViewPage {
   }
 
   getPendingAnimals(){
-    this.animalProvider.getPending(this.searchText)
+    this.animalProvider.getPendingBySex(this.searchText)
     .then((result: any[]) =>{
       this.animals = result;
     });

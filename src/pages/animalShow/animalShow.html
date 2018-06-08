@@ -7,19 +7,18 @@
 </ion-header>
 
 <ion-content padding>
-	<ion-item id="corpo">
+	<ion-item no-lines id="corpo">
 		<ion-card>
 			<ion-card-header>
 				<img src="{{model.img}}">
 			</ion-card-header>
-			<ion-card-content>
-				{{ model.tipo }}, {{ model.nome }}, {{ model.sexo }},<br>{{ model.anos }} anos, Porte {{ model.porte }},<br> {{ model.temperamento }}, {{ model.raca }},<br>{{ model.vacinado }} e {{ model.castrado }}. <br><br>{{ model.info }}
+			<ion-card-content style="white-space: normal;">
+				{{ model.tipo }}, {{ model.nome }}, {{ model.sexo }}, {{ model.anos }} ano(s) e {{model.meses}} mês(es), Porte {{ model.porte }}, {{ model.temperamento }}, {{ model.raca }}, {{ model.vacinado }} e {{ model.castrado }}. <br><br>{{ model.info }}
 			</ion-card-content>
 		</ion-card>
 	</ion-item>
 
-  <ion-footer>
-    <ion-grid>
+
       <div class="row row-bottom">
         <div class="col .col-50">
           <button (click)="goback()" ion-button large id = "btn">Voltar</button>
@@ -28,6 +27,5 @@
           <button ion-button large id = "btn" (click)="save()">Adotar</button>
         </div>
       </div>
-    </ion-grid>
-  </ion-footer>
+
 </ion-content>

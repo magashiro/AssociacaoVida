@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { AnimalProvider } from '../../providers/animal/animal';
 
@@ -16,7 +16,7 @@ export class AnimalList {
 
   homePage = HomePage;
 
-  constructor(public navCtrl: NavController, private toast: ToastController, private animalProvider: AnimalProvider) {
+  constructor(public navCtrl: NavController, private animalProvider: AnimalProvider) {
   }
 
   ionViewDidEnter(){
@@ -24,7 +24,7 @@ export class AnimalList {
   }
 
   getNewAnimals(){
-    this.animalProvider.getNew(this.searchText)
+    this.animalProvider.getBySex(this.searchText)
     .then((result: any[]) =>{
       this.animals = result;
     });
@@ -43,7 +43,7 @@ export class AnimalList {
   	});
   }
 
-  filterAnimals(ev: any){
+  filterAnimals(){
   	this.getNewAnimals();
   }
 

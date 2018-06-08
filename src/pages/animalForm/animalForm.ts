@@ -118,11 +118,7 @@ homePage = HomePage;
 
 
   save(){
-    if (this.model.info == '' || this.model.info == null || this.model.info == undefined){
-      this.model.info = 'Sem informação adicional';
-    }
     this.model.img = this.pathForImage(this.lastImage);
-    this.validateFields();
     if (this.validateFields()){
       this.navCtrl.push(UserFormPage, {
         nome: this.model.nome,

@@ -56,6 +56,9 @@ export class UserFormPage {
 
 
 	private saveAnimal(){
+		if (this.modelAnimal.info == '' || this.modelAnimal.info == null || this.modelAnimal.info == undefined){
+      		this.modelAnimal.info = 'Sem informação adicional';
+      	}
 		return this.animalProvider.insertAnimal(this.modelAnimal);
 	}
 
